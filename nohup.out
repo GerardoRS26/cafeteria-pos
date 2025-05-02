@@ -1,0 +1,535 @@
+[2025-05-02 14:55:05.815] [info] Using configuration file /home/gerardo/.config/waybar/config.jsonc
+[2025-05-02 14:55:05.817] [info] Discovered appearance 'dark'
+[2025-05-02 14:55:05.817] [info] Using CSS file /home/gerardo/.config/waybar/style.css
+[2025-05-02 14:55:05.824] [info] Hyprland IPC starting
+[2025-05-02 14:55:05.824] [info] Loading persistent workspaces from Waybar config
+[2025-05-02 14:55:05.824] [info] Loading persistent workspaces from Hyprland workspace rules
+[2025-05-02 14:55:05.828] [info] Loading persistent workspaces from Waybar config
+[2025-05-02 14:55:05.828] [info] Loading persistent workspaces from Hyprland workspace rules
+[2025-05-02 14:55:05.828] [warning] module backlight: Disabling module "backlight", No backlight found
+[2025-05-02 14:55:05.835] [warning] No batteries.
+[2025-05-02 14:55:05.947] [warning] module backlight: Disabling module "backlight", No backlight found
+[2025-05-02 14:55:05.956] [warning] No batteries.
+
+** (waybar:663448): WARNING **: 14:55:06.178: Status Notifier Item with bus name ':1.38' and object path '/org/ayatana/NotificationItem/udiskie' is already registered
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:06.224: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:06.224: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:06.225: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:06.225: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+[2025-05-02 14:55:06.232] [warning] Requested height: 31 is less than the minimum height: 32 required by the modules
+[2025-05-02 14:55:06.232] [info] Bar configured (width: 1920, height: 32) for output: HDMI-A-1
+[2025-05-02 14:55:06.232] [warning] Requested height: 31 is less than the minimum height: 32 required by the modules
+[2025-05-02 14:55:06.232] [info] Bar configured (width: 1920, height: 32) for output: DP-3
+[2025-05-02 14:55:06.235] [info] Bar configured (width: 1920, height: 32) for output: HDMI-A-1
+
+** (waybar:663448): WARNING **: 14:55:07.185: Status Notifier Item with bus name ':1.38' and object path '/org/ayatana/NotificationItem/udiskie' is already registered
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:15.584: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:15.584: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:15.585: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:15.585: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:25.471: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:25.471: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:25.472: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:25.472: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:26.043: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:26.043: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:26.044: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:26.044: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:32.723: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:32.723: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:32.724: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:32.724: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:33.290: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:33.290: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:33.290: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:55:33.290: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:57:42.592: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:57:42.592: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:57:42.593: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:57:42.593: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:57:43.768: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:57:43.768: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:57:43.769: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:57:43.769: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:57:47.313: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:57:47.313: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:57:47.314: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:57:47.314: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:58:37.494: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:58:37.494: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:58:37.494: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:58:37.494: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:58:41.101: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:58:41.101: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:58:41.102: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:58:41.102: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:59:05.267: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:59:05.267: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:59:05.267: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 14:59:05.267: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+Gdk-Message: 15:00:12.509: Unable to load arrow from the cursor theme
+Gdk-Message: 15:00:12.519: Unable to load arrow from the cursor theme
+Gdk-Message: 15:00:12.531: Unable to load arrow from the cursor theme
+Gdk-Message: 15:00:12.547: Unable to load arrow from the cursor theme
+Gdk-Message: 15:00:12.571: Unable to load arrow from the cursor theme
+Gdk-Message: 15:02:06.728: Unable to load arrow from the cursor theme
+Gdk-Message: 15:02:06.840: Unable to load arrow from the cursor theme
+
+(waybar:663448): Gtk-CRITICAL **: 15:03:36.342: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:03:36.342: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:03:36.342: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:03:36.342: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:03:37.687: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:03:37.687: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:03:37.688: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:03:37.688: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:03:42.985: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:03:42.985: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:03:42.985: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:03:42.985: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:03:48.023: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:03:48.023: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:03:48.023: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:03:48.023: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:03:51.344: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:03:51.344: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:03:51.344: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:03:51.344: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+Gdk-Message: 15:09:38.098: Unable to load arrow from the cursor theme
+Gdk-Message: 15:09:38.107: Unable to load arrow from the cursor theme
+
+(waybar:663448): Gtk-CRITICAL **: 15:10:17.464: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:10:17.464: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:10:17.465: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:10:17.465: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:10:19.145: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:10:19.145: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:10:19.145: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:10:19.145: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:10:25.852: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:10:25.852: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:10:25.852: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:10:25.852: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:10:31.178: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:10:31.178: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:10:31.178: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:10:31.178: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:13:03.492: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:13:03.492: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:13:03.493: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:13:03.493: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:13:04.080: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:13:04.080: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:13:04.080: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:13:04.080: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:13:09.798: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:13:09.798: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:13:09.798: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:13:09.798: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:13:10.380: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:13:10.380: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:13:10.380: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:13:10.380: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+Gdk-Message: 15:16:29.530: Unable to load arrow from the cursor theme
+Gdk-Message: 15:16:29.536: Unable to load arrow from the cursor theme
+Gdk-Message: 15:16:29.540: Unable to load arrow from the cursor theme
+Gdk-Message: 15:16:29.546: Unable to load arrow from the cursor theme
+Gdk-Message: 15:16:29.550: Unable to load arrow from the cursor theme
+Gdk-Message: 15:16:29.816: Unable to load arrow from the cursor theme
+Gdk-Message: 15:16:29.818: Unable to load arrow from the cursor theme
+Gdk-Message: 15:16:29.822: Unable to load arrow from the cursor theme
+Gdk-Message: 15:16:29.826: Unable to load arrow from the cursor theme
+Gdk-Message: 15:16:29.830: Unable to load arrow from the cursor theme
+Gdk-Message: 15:16:30.475: Unable to load arrow from the cursor theme
+Gdk-Message: 15:16:30.491: Unable to load arrow from the cursor theme
+Gdk-Message: 15:16:30.498: Unable to load arrow from the cursor theme
+Gdk-Message: 15:16:30.516: Unable to load arrow from the cursor theme
+Gdk-Message: 15:16:30.541: Unable to load arrow from the cursor theme
+Gdk-Message: 15:17:51.034: Unable to load arrow from the cursor theme
+Gdk-Message: 15:17:51.052: Unable to load arrow from the cursor theme
+Gdk-Message: 15:17:51.055: Unable to load arrow from the cursor theme
+Gdk-Message: 15:17:53.390: Unable to load arrow from the cursor theme
+Gdk-Message: 15:17:53.430: Unable to load arrow from the cursor theme
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:31.107: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:31.108: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:31.109: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:31.109: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:33.512: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:33.512: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:33.513: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:33.513: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:35.833: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:35.833: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:35.833: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:35.833: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:36.404: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:36.404: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:36.405: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:36.405: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:47.483: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:47.483: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:47.484: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:47.484: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:48.056: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:48.056: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:48.056: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:26:48.056: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+Gdk-Message: 15:26:53.213: Unable to load arrow from the cursor theme
+Gdk-Message: 15:26:53.226: Unable to load arrow from the cursor theme
+Gdk-Message: 15:26:53.233: Unable to load arrow from the cursor theme
+Gdk-Message: 15:26:53.234: Unable to load arrow from the cursor theme
+Gdk-Message: 15:26:53.243: Unable to load arrow from the cursor theme
+Gdk-Message: 15:26:53.467: Unable to load arrow from the cursor theme
+Gdk-Message: 15:26:53.479: Unable to load arrow from the cursor theme
+Gdk-Message: 15:26:53.488: Unable to load arrow from the cursor theme
+Gdk-Message: 15:26:53.514: Unable to load arrow from the cursor theme
+Gdk-Message: 15:26:53.589: Unable to load arrow from the cursor theme
+
+(waybar:663448): Gtk-CRITICAL **: 15:27:54.903: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:27:54.903: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:27:54.903: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:27:54.903: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:28:08.951: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:28:08.951: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:28:08.952: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:28:08.952: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:28:15.584: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:28:15.584: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:28:15.584: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:28:15.584: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:28:18.181: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:28:18.181: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:28:18.181: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:28:18.181: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+Gdk-Message: 15:28:35.924: Unable to load arrow from the cursor theme
+Gdk-Message: 15:28:35.936: Unable to load arrow from the cursor theme
+
+(waybar:663448): Gtk-CRITICAL **: 15:28:50.031: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:28:50.031: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:28:50.032: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:28:50.032: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:28:50.531: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:28:50.531: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:28:50.532: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:28:50.532: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:01.927: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:01.927: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:01.927: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:01.927: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:02.499: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:02.499: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:02.499: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:02.499: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:04.395: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:04.395: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:04.396: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:04.396: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:04.973: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:04.973: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:04.974: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:04.974: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:09.251: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:09.251: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:09.251: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:09.251: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:23.928: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:23.929: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:23.929: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:29:23.929: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:30:01.317: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:30:01.317: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:30:01.317: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:30:01.317: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:30:01.885: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:30:01.885: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:30:01.885: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:30:01.885: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:30:08.973: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:30:08.973: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:30:08.973: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:30:08.973: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:30:09.542: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:30:09.542: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:30:09.542: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:30:09.542: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:24.011: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:24.011: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:24.012: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:24.012: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:24.581: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:24.581: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:24.581: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:24.582: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:29.184: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:29.184: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:29.184: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:29.184: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:29.753: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:29.753: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:29.753: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:29.753: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:45.489: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:45.489: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:45.490: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:45.490: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:46.584: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:46.584: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:46.585: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:46.585: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:47.500: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:47.500: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:47.500: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:47.500: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:48.069: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:48.069: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:48.070: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:48.070: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:58.198: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:58.198: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:58.198: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:58.198: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:58.762: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:58.762: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:58.763: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:32:58.763: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:33:03.284: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:33:03.284: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:33:03.284: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:33:03.284: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:33:05.824: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:33:05.824: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:33:05.825: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:33:05.825: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+Gdk-Message: 15:45:47.306: Unable to load arrow from the cursor theme
