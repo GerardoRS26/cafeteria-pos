@@ -10,20 +10,23 @@
     "sourceMap": true,
     "strict": true,
     "moduleResolution": "bundler",
-    "paths": {
-      "@domain/*": [
-        "./src/core/domain/*"
-      ],
-      "@infrastructure/*": [
-        "./src/core/infrastructure/*"
-      ],
-      "@presentation/*": [
-        "./src/core/presentation/*"
-      ],
-      "@shared/*": [
-        "./src/core/shared/*"
-      ]
-    }
+    // "paths": {
+    //   "@domain/*": [
+    //     "./src/core/domain/*"
+    //   ],
+    //   "@infrastructure/*": [
+    //     "./src/core/infrastructure/*"
+    //   ],
+    //   "@presentation/*": [
+    //     "./src/core/presentation/*"
+    //   ],
+    //   "@shared/*": [
+    //     "./src/core/shared/*"
+    //   ],
+    //   "@application/*": [
+    //     "./src/core/application/*"
+    //   ]
+    // }
   }
   // Path aliases are handled by https://svelte.dev/docs/kit/configuration#alias
   // except $lib which is handled by https://svelte.dev/docs/kit/configuration#files

@@ -533,3 +533,40 @@ Gdk-Message: 15:28:35.936: Unable to load arrow from the cursor theme
 
 (waybar:663448): Gtk-CRITICAL **: 15:33:05.825: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
 Gdk-Message: 15:45:47.306: Unable to load arrow from the cursor theme
+Gdk-Message: 15:50:02.111: Unable to load arrow from the cursor theme
+Gdk-Message: 15:50:02.117: Unable to load arrow from the cursor theme
+Gdk-Message: 15:50:02.123: Unable to load arrow from the cursor theme
+Gdk-Message: 15:50:02.129: Unable to load arrow from the cursor theme
+Gdk-Message: 15:50:02.134: Unable to load arrow from the cursor theme
+Gdk-Message: 15:51:44.846: Unable to load arrow from the cursor theme
+Gdk-Message: 15:51:44.848: Unable to load arrow from the cursor theme
+Gdk-Message: 15:51:44.856: Unable to load arrow from the cursor theme
+Gdk-Message: 15:51:44.860: Unable to load arrow from the cursor theme
+Gdk-Message: 15:51:44.972: Unable to load arrow from the cursor theme
+
+(waybar:663448): Gtk-CRITICAL **: 15:59:40.723: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:59:40.723: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:59:40.724: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:59:40.724: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:59:48.688: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:59:48.688: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:59:48.689: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 15:59:48.689: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 16:00:52.455: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 16:00:52.455: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 16:00:52.455: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:663448): Gtk-CRITICAL **: 16:00:52.455: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+Gdk-Message: 16:09:37.946: Unable to load arrow from the cursor theme
+Gdk-Message: 16:09:37.994: Unable to load arrow from the cursor theme
+Gdk-Message: 16:09:38.016: Unable to load arrow from the cursor theme

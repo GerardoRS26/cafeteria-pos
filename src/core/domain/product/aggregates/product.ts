@@ -8,14 +8,12 @@ import { Money } from '../value-objects/money';
  */
 export class Product {
 	public readonly id: ProductId;
-
 	public description: string;
-
 	public isActive: boolean = true;
+	public cost: Money;
 
 	private _name: string;
 	private _price: Money;
-	private _cost: Money;
 
 	/**
 	 * Creates a new Product.
@@ -33,7 +31,7 @@ export class Product {
 		this.description = params.description;
 		this._name = this._validateName(params.name);
 		this._price = params.price;
-		this._cost = params.cost;
+		this.cost = params.cost;
 		this._validatePriceNotBelowCost();
 	}
 
@@ -67,14 +65,6 @@ export class Product {
 	 * Current selling price.
 	 * @throws {Error} If set below cost.
 	 */
-	get cost(): Money {
-		return this._cost;
-	}
-
-	set cost(newPrice: Money) {
-		this._cost = newPrice;
-		this._validateCostNotBelowZero();
-	}
 
 	// --- Behaviors ---
 	/**
@@ -101,18 +91,7 @@ export class Product {
 	 * @throws {Error} If price is invalid.
 	 */
 	private _validatePriceNotBelowCost(): void {
-		if (this._price.lessThan(this._cost)) {
-			throw new Error('Price cannot be below cost');
-		}
-	}
-
-	/**
-	 * Ensures price is never below cost.
-	 * @private
-	 * @throws {Error} If price is invalid.
-	 */
-	private _validateCostNotBelowZero(): void {
-		if (this._cost.lessThan(new Money(0))) {
+		if (this._price.lessThan(this.cost)) {
 			throw new Error('Price cannot be below cost');
 		}
 	}

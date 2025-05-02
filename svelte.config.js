@@ -14,7 +14,12 @@ const config = {
 		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
 		adapter: adapter(),
 		alias: {
-			$core: 'src/core'
+			$lib: 'src/app/lib',
+			'@domain': './src/core/domain',
+			'@infrastructure': './src/core/infrastructure',
+			'@presentation': './src/core/presentation',
+			'@shared': './src/core/shared',
+			'@application': './src/core/application'
 		},
 		files: {
 			appTemplate: 'src/app/app.html',
