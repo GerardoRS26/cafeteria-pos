@@ -24,7 +24,8 @@ const config = {
 		files: {
 			appTemplate: 'src/app/app.html',
 			routes: 'src/app/routes',
-			lib: 'src/app/lib'
+			lib: 'src/app/lib',
+			assets: 'src/app/static'
 		}
 	}
 };

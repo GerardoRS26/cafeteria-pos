@@ -1,0 +1,135 @@
+/* === Catppuccin Mocha - Variables CSS === */
+:root {
+  /* Base */
+  --base: #1e1e2e;
+  --mantle: #181825;
+  --crust: #11111b;
+
+  /* Text */
+  --text: #cdd6f4;
+  --subtext1: #bac2de;
+  --subtext0: #a6adc8;
+
+  /* Surface */
+  --surface0: #313244;
+  --surface1: #45475a;
+  --surface2: #585b70;
+
+  /* Colores principales */
+  --rosewater: #f5e0dc;
+  --flamingo: #f2cdcd;
+  --pink: #f5c2e7;
+  --mauve: #cba6f7;
+  --red: #f38ba8;
+  --maroon: #eba0ac;
+  --peach: #fab387;
+  --yellow: #f9e2af;
+  --green: #a6e3a1;
+  --teal: #94e2d5;
+  --sky: #89dceb;
+  --sapphire: #74c7ec;
+  --blue: #89b4fa;
+  --lavender: #b4befe;
+
+  /* Semánticos */
+  --primary: var(--mauve);
+  --secondary: var(--blue);
+  --accent: var(--peach);
+  --error: var(--red);
+  --success: var(--green);
+  --warning: var(--yellow);
+
+  /* Tipografía */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+  --text-base: 1rem;
+  --text-scale: 1.25; /* Escala modular */
+}
+
+/* === Reset Moderno === */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* === Estilos Base === */
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--base);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  padding: 0;
+  margin: 0;
+}
+
+/* === Tipografía Responsiva === */
+h1, h2, h3, h4 {
+  color: var(--rosewater);
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+h1 { font-size: calc(var(--text-base) * var(--text-scale) * 2); }
+h2 { font-size: calc(var(--text-base) * var(--text-scale) * 1.5); }
+h3 { font-size: calc(var(--text-base) * var(--text-scale) * 1.17); }
+
+/* === Enlaces y Botones === */
+a {
+  color: var(--lavender);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  &:hover {
+    color: var(--mauve);
+    text-decoration: underline;
+  }
+}
+
+button, .btn {
+  --btn-bg: var(--surface1);
+  --btn-text: var(--text);
+
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.75em 1.5em;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
+
+  &:hover {
+    background: color-mix(in srgb, var(--btn-bg) 90%, white);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &-primary {
+    --btn-bg: var(--primary);
+    --btn-text: var(--crust);
+  }
+}
+
+/* === Utilidades === */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.text-accent {
+  color: var(--accent);
+}

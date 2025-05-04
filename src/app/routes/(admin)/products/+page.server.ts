@@ -8,7 +8,12 @@ export async function load() {
 	const service = new ProductService(new DrizzleProductRepository());
 	const products = await service.listActive();
 	return {
-		products: products.map((p) => ({ id: p.id.value, name: p.name, price: p.price.value }))
+		products: products.map((p) => ({
+			id: p.id.value,
+			name: p.name,
+			price: p.price.value,
+			isActive: p.isActive
+		}))
 	};
 }
 
