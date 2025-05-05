@@ -77,47 +77,50 @@
 <div class="page-container">
 	<h1 class="page-title">Gestión de Productos</h1>
 
-	{#if isAdmin}
-		<div class="actions-header">
-			<div class="search-and-filter">
-				<!-- Barra de búsqueda -->
-				<div class="search-container">
-					<input
-						type="text"
-						bind:value={searchQuery}
-						on:input={() => {
-							showSuggestions = searchQuery.length > 1;
-							focusedSuggestionIndex = -1;
-						}}
-						on:focus={() => (showSuggestions = searchQuery.length > 1)}
-						on:blur={() => setTimeout(() => (showSuggestions = false), 200)}
-						on:keydown={handleKeydown}
-						placeholder="Buscar productos..."
-						class="search-input"
-					/>
-					{#if searchQuery}
-						<button
-							on:click={() => (searchQuery = '')}
-							class="search-clear"
-							aria-label="Limpiar búsqueda"
-						>
-							×
-						</button>
-					{/if}
-					{#if showSuggestions && suggestions.length > 0}
-						<ul class="suggestions-list">
-							{#each suggestions as suggestion, index}
-								<li
-									class:selected={index === focusedSuggestionIndex}
-									on:mousedown={() => selectSuggestion(suggestion)}
-								>
+	<div class="actions-header">
+		<div class="search-and-filter">
+			<!-- Barra de búsqueda -->
+			<div class="search-container">
+				<input
+					type="text"
+					bind:value={searchQuery}
+					oninput={() => {
+						showSuggestions = searchQuery.length > 1;
+						focusedSuggestionIndex = -1;
+					}}
+					onfocus={() => (showSuggestions = searchQuery.length > 1)}
+					onblur={() => setTimeout(() => (showSuggestions = false), 200)}
+					onkeydown={handleKeydown}
+					placeholder="Buscar productos..."
+					class="search-input"
+				/>
+				{#if searchQuery}
+					<button
+						onclick={() => (searchQuery = '')}
+						class="search-clear"
+						aria-label="Limpiar búsqueda"
+					>
+						×
+					</button>
+				{/if}
+				{#if showSuggestions && suggestions.length > 0}
+					<ul class="suggestions-list">
+						{#each suggestions as suggestion, index}
+							<div
+								role="button"
+								tabindex="0"
+								onmousedown={() => selectSuggestion(suggestion as string)}
+							>
+								<li class:selected={index === focusedSuggestionIndex}>
 									{suggestion}
 								</li>
-							{/each}
-						</ul>
-					{/if}
-				</div>
+							</div>
+						{/each}
+					</ul>
+				{/if}
+			</div>
 
+			{#if isAdmin}
 				<!-- Filtro de estado -->
 				<div class="status-filter">
 					<label class="toggle-container">
@@ -128,11 +131,12 @@
 						<span class="toggle-label">Mostrar inactivos</span>
 					</label>
 				</div>
-			</div>
-
-			<a href="/products/admin/new" class="btn btn-primary"> + Nuevo Producto </a>
+			{/if}
 		</div>
-	{/if}
+		{#if isAdmin}
+			<a href="/products/admin/new" class="btn btn-primary"> + Nuevo Producto </a>
+		{/if}
+	</div>
 
 	<div class="products-grid">
 		{#each filteredProducts as product}

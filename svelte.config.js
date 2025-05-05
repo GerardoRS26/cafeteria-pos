@@ -20,7 +20,8 @@ const config = {
 			'@presentation': './src/core/presentation',
 			'@shared': './src/core/shared',
 			'@application': './src/core/application',
-			'@styles': './src/app/styles'
+			'@styles': './src/app/styles',
+			'@stores': './src/app/lib/stores'
 		},
 		files: {
 			appTemplate: 'src/app/app.html',
