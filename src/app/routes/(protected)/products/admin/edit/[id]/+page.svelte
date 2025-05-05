@@ -1,0 +1,201 @@
+<!-- src/routes/admin/products/[id]/+page.svelte -->
+<script lang="ts">
+	import { enhance } from '$app/forms';
+	import { page } from '$app/stores';
+	import Alert from '$lib/components/Alert.svelte';
+	import type { ActionResult } from '@sveltejs/kit';
+
+	// Props con tipado fuerte
+	const { data } = $props<{
+		data: {
+			product: {
+				id: string;
+				name: string;
+				description?: string;
+				price: number;
+				cost: number;
+			};
+		};
+	}>();
+
+	// Estados reactivos
+	let formError = $state<string | null>(null);
+	let formSuccess = $state<string | null>($page.url.searchParams.get('success') || null);
+	let formData = $state({
+		name: data.product.name,
+		description: data.product.description || '',
+		price: data.product.price.toFixed(2),
+		cost: data.product.cost.toFixed(2)
+	});
+
+	// Efecto para auto-ocultar alertas
+	$effect(() => {
+		if (!formSuccess && !formError) return;
+
+		const timer = setTimeout(() => {
+			formSuccess = null;
+			formError = null;
+		}, 5000);
+
+		return () => clearTimeout(timer);
+	});
+
+	// Validaciones computadas
+	const errors = $derived({
+		name: !formData.name.trim()
+			? 'Nombre requerido'
+			: formData.name.trim().length < 3
+				? 'Mínimo 3 caracteres'
+				: null,
+		price: isNaN(Number(formData.price))
+			? 'Precio inválido'
+			: Number(formData.price) < 0
+				? 'No puede ser negativo'
+				: null,
+		cost: isNaN(Number(formData.cost))
+			? 'Costo inválido'
+			: Number(formData.cost) < 0
+				? 'No puede ser negativo'
+				: null
+	});
+
+	// Estado de campos tocados
+	let touched = $state({
+		name: false,
+		price: false,
+		cost: false
+	});
+
+	function handleBlur(field: keyof typeof touched) {
+		touched[field] = true;
+	}
+
+	async function handleSubmit({ result }: { result: ActionResult }) {
+		console.log('result', { result });
+		if (result?.type === 'success') {
+			formSuccess = 'Producto actualizado correctamente';
+			formError = null;
+		} else if (result?.type === 'failure') {
+			formError = result.data?.error || 'Error al actualizar el producto';
+			formData = result.data?.fields || formData;
+		}
+	}
+</script>
+
+<div class="form-container">
+	<h1 class="form-title">Editar Producto</h1>
+
+	<!-- Alertas -->
+	{#if formSuccess}
+		<Alert type="success" message={formSuccess} on:dismiss={() => (formSuccess = null)} />
+	{/if}
+
+	{#if formError}
+		<Alert type="error" message={formError} on:dismiss={() => (formError = null)} />
+	{/if}
+
+	<form method="POST" use:enhance={handleSubmit}>
+		<input type="hidden" name="id" value={data.product.id} />
+
+		<div class="form-group">
+			<label for="name" class="form-label">Nombre*</label>
+			<input
+				id="name"
+				name="name"
+				type="text"
+				bind:value={formData.name}
+				on:blur={() => handleBlur('name')}
+				class:invalid={touched.name && !!errors.name}
+				required
+				minlength="3"
+				class="form-input"
+			/>
+			{#if touched.name && errors.name}
+				<div class="field-error">{errors.name}</div>
+			{/if}
+		</div>
+
+		<div class="form-group">
+			<label for="description" class="form-label">Descripción</label>
+			<textarea
+				id="description"
+				name="description"
+				bind:value={formData.description}
+				class="form-input form-textarea"
+			></textarea>
+		</div>
+
+		<div class="grid-cols-2">
+			<div class="form-group">
+				<label for="price" class="form-label">Precio*</label>
+				<div class="money-input">
+					<span class="currency-symbol">$</span>
+					<input
+						id="price"
+						name="price"
+						type="number"
+						bind:value={formData.price}
+						on:blur={() => handleBlur('price')}
+						class:invalid={touched.price && !!errors.price}
+						required
+						min="0"
+						step="0.01"
+						class="form-input"
+					/>
+				</div>
+				{#if touched.price && errors.price}
+					<div class="field-error">{errors.price}</div>
+				{/if}
+			</div>
+
+			<div class="form-group">
+				<label for="cost" class="form-label">Costo*</label>
+				<div class="money-input">
+					<span class="currency-symbol">$</span>
+					<input
+						id="cost"
+						name="cost"
+						type="number"
+						bind:value={formData.cost}
+						on:blur={() => handleBlur('cost')}
+						class:invalid={touched.cost && !!errors.cost}
+						required
+						min="0"
+						step="0.01"
+						class="form-input"
+					/>
+				</div>
+				{#if touched.cost && errors.cost}
+					<div class="field-error">{errors.cost}</div>
+				{/if}
+			</div>
+		</div>
+
+		<div class="form-actions">
+			<a href="/admin/products" class="btn btn-secondary">Cancelar</a>
+			<button type="submit" class="btn btn-primary" disabled={Object.values(errors).some(Boolean)}>
+				Actualizar Producto
+			</button>
+		</div>
+	</form>
+</div>
+
+<style>
+	@import '@styles/forms';
+
+	.field-error {
+		color: var(--red);
+		font-size: 0.8rem;
+		margin-top: 0.25rem;
+	}
+
+	input.invalid,
+	textarea.invalid {
+		border-color: var(--red) !important;
+	}
+
+	.form-actions button:disabled {
+		opacity: 0.7;
+		cursor: not-allowed;
+	}
+</style>

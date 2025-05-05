@@ -3,8 +3,7 @@ import { ProductId } from '@domain/product/value-objects/product-id';
 import { DrizzleProductRepository } from '@infrastructure/db/drizzle/product-repository';
 import { fail, redirect } from '@sveltejs/kit';
 
-export async function load() {
-	console.log('Loading products...');
+export async function load(event) {
 	const service = new ProductService(new DrizzleProductRepository());
 	const products = await service.listAll();
 	return {
@@ -13,7 +12,8 @@ export async function load() {
 			name: p.name,
 			price: p.price.value,
 			isActive: p.isActive
-		}))
+		})),
+		user: event.locals.user
 	};
 }
 
@@ -24,7 +24,7 @@ export const actions = {
 		const service = new ProductService(new DrizzleProductRepository());
 		const productId = (data.get('id') as string) ?? '';
 		await service.deactivate(new ProductId(productId));
-		throw redirect(303, '/admin/products');
+		throw redirect(303, '/products');
 	},
 
 	toggleStatus: async ({ request }) => {

@@ -26,7 +26,10 @@ const config = {
 			appTemplate: 'src/app/app.html',
 			routes: 'src/app/routes',
 			lib: 'src/app/lib',
-			assets: 'src/app/static'
+			assets: 'src/app/static',
+			hooks: {
+				server: 'src/app/hooks/hooks.server.ts'
+			}
 		}
 	}
 };

@@ -35,7 +35,7 @@ export const actions: Actions = {
 			});
 
 			// 3. Redirigir a lista de productos
-			throw redirect(303, '/admin/products');
+			throw redirect(303, '/products');
 		} catch (error) {
 			// 4. Manejar errores
 			return fail(400, {

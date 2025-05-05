@@ -4,6 +4,7 @@ import { ProductId } from '@domain/product/value-objects/product-id';
 import { Money } from '@domain/product/value-objects/money';
 import { error, fail, redirect } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
+import { isRedirectError } from '$lib/utils';
 
 export const load: PageServerLoad = async ({ params }) => {
 	const service = new ProductService(new DrizzleProductRepository());
@@ -31,6 +32,7 @@ export const actions: Actions = {
 		try {
 			const service = new ProductService(new DrizzleProductRepository());
 			const productId = new ProductId(params.id);
+			//TODO actualizar reglas para que siempre se envie el agregado de producto o en el save para evitar validaciones
 
 			// Validaciones
 			const name = formData.get('name')?.toString() || '';
@@ -39,7 +41,6 @@ export const actions: Actions = {
 
 			if (name.length < 3) throw new Error('Nombre muy corto');
 			if (isNaN(priceValue)) throw new Error('Precio inválido');
-
 			// Actualización
 			await service.update(productId, {
 				name,
@@ -47,12 +48,21 @@ export const actions: Actions = {
 				price: new Money(priceValue),
 				cost: new Money(costValue)
 			});
-
-			throw redirect(303, '/admin/products');
+			console.log('Product updated successfully');
+			throw redirect(303, `/products?success=Producto "${name}" actualizado correctamente`);
 		} catch (err) {
+			if (isRedirectError(err)) {
+				throw err;
+			}
+			console.error('Error updating product:', err);
 			return fail(400, {
-				error: err instanceof Error ? err.message : 'Error desconocido',
-				formData: Object.fromEntries(formData)
+				error: err instanceof Error ? err.message : 'Error al actualizar el producto',
+				fields: {
+					name: formData.get('name')?.toString(),
+					description: formData.get('description')?.toString(),
+					price: formData.get('price')?.toString(),
+					cost: formData.get('cost')?.toString()
+				}
 			});
 		}
 	}

@@ -2,9 +2,10 @@ import { sqliteTable, text, integer, real } from 'drizzle-orm/sqlite-core';
 
 export const user = sqliteTable('user', {
 	id: text('id').primaryKey(),
-	age: integer('age'),
 	username: text('username').notNull().unique(),
-	passwordHash: text('password_hash').notNull()
+	passwordHash: text('password_hash').notNull(),
+	role: text('role').notNull().default('seller'), // 'seller' o 'admin'
+	createdAt: integer('created_at', { mode: 'timestamp' }).notNull()
 });
 
 export const session = sqliteTable('session', {
