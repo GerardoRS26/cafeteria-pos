@@ -26,6 +26,7 @@ export class Product {
 		description: string;
 		price: Money;
 		cost: Money;
+		isActive?: boolean;
 	}) {
 		this.id = params.id;
 		this.description = params.description;
@@ -33,6 +34,7 @@ export class Product {
 		this._price = params.price;
 		this.cost = params.cost;
 		this._validatePriceNotBelowCost();
+		this.isActive = params.isActive ?? false;
 	}
 
 	// --- Public Accessors ---
@@ -73,7 +75,9 @@ export class Product {
 	deactivate(): void {
 		this.isActive = false;
 	}
-
+	activate(): void {
+		this.isActive = true;
+	}
 	// --- Validations ---
 	/**
 	 * Validates the product name meets business rules.

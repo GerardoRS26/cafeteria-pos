@@ -1,5 +1,10 @@
 <script lang="ts">
-	export let data;
+	let { data } = $props();
+	let showInactive = $state(false);
+
+	let filteredProducts = $derived(
+		showInactive ? data.products : data.products.filter((p) => p.isActive)
+	);
 </script>
 
 <div class="page-container">
@@ -7,14 +12,20 @@
 
 	<div class="actions-header">
 		<div class="status-filter">
-			<!-- Filtros pueden ir aquí -->
+			<label class="toggle-container">
+				<span class="toggle-switch">
+					<input type="checkbox" bind:checked={showInactive} />
+					<span class="slider round"></span>
+				</span>
+				<span class="toggle-label">Mostrar inactivos</span>
+			</label>
 		</div>
 		<a href="/admin/products/new" class="btn btn-primary"> + Nuevo Producto </a>
 	</div>
 
 	<div class="products-grid">
-		{#each data.products as product}
-			<div class="product-card">
+		{#each filteredProducts as product}
+			<div class="product-card" class:inactive={!product.isActive}>
 				<h3 class="product-name">{product.name}</h3>
 				<div class="status-badge {product.isActive ? 'active' : 'inactive'}">
 					{product.isActive ? 'Activo' : 'Inactivo'}
@@ -27,11 +38,19 @@
 					<a href="/admin/products/edit/{product.id}" class="btn btn-secondary"> Editar </a>
 					<form method="POST" action="?/toggleStatus">
 						<input type="hidden" name="id" value={product.id} />
-						<button type="submit" class="btn">
+						<button type="submit" class="btn btn-secondary">
 							{product.isActive ? 'Desactivar' : 'Activar'}
 						</button>
 					</form>
 				</div>
+			</div>
+		{:else}
+			<div class="empty-state">
+				{#if showInactive}
+					<p>No hay productos registrados</p>
+				{:else}
+					<p>No hay productos activos</p>
+				{/if}
 			</div>
 		{/each}
 	</div>
@@ -66,12 +85,21 @@
 		cursor: pointer;
 		transition: all 0.2s ease;
 
-		&-primary {
+		&.primary {
 			background-color: var(--mauve);
 			color: var(--crust);
 
 			&:hover {
 				background-color: color-mix(in srgb, var(--mauve) 90%, white);
+			}
+		}
+
+		&.secondary {
+			background-color: var(--surface1);
+			color: var(--text);
+
+			&:hover {
+				background-color: var(--surface2);
 			}
 		}
 	}
@@ -94,6 +122,11 @@
 		&:hover {
 			transform: translateY(-4px);
 			box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+		}
+
+		&.inactive {
+			opacity: 0.8;
+			border-left-color: var(--surface2);
 		}
 	}
 
@@ -138,5 +171,69 @@
 			background-color: color-mix(in srgb, var(--red) 20%, transparent);
 			color: var(--red);
 		}
+	}
+
+	.status-filter {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.toggle-container {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.75rem;
+		cursor: pointer;
+	}
+
+	.toggle-switch {
+		position: relative;
+		display: inline-block;
+		width: 50px;
+		height: 24px;
+	}
+
+	.toggle-switch input {
+		opacity: 0;
+		width: 0;
+		height: 0;
+	}
+
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: var(--surface2);
+		transition: 0.4s;
+		border-radius: 24px;
+	}
+
+	.slider:before {
+		position: absolute;
+		content: '';
+		height: 16px;
+		width: 16px;
+		left: 4px;
+		bottom: 4px;
+		background-color: var(--text);
+		transition: 0.4s;
+		border-radius: 50%;
+	}
+
+	input:checked + .slider {
+		background-color: var(--mauve);
+	}
+
+	input:checked + .slider:before {
+		transform: translateX(26px);
+	}
+
+	.toggle-label {
+		font-size: 0.9rem;
+		color: var(--subtext1);
+		user-select: none; /* Evita que el texto se seleccione al hacer clic */
 	}
 </style>

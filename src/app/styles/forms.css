@@ -1,0 +1,112 @@
+.form-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--mantle);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.form-title {
+  font-size: 1.75rem;
+  color: var(--rosewater);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.error-message {
+  background-color: color-mix(in srgb, var(--red) 20%, transparent);
+  color: var(--red);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--red);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--subtext1);
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--surface0);
+  border: 1px solid var(--surface1);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: var(--mauve);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--mauve) 30%, transparent);
+  }
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.grid-cols-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &-secondary {
+    background-color: var(--surface1);
+    color: var(--text);
+
+    &:hover {
+      background-color: var(--surface2);
+    }
+  }
+
+  &-primary {
+    background-color: var(--mauve);
+    color: var(--crust);
+
+    &:hover {
+      background-color: color-mix(in srgb, var(--mauve) 90%, white);
+    }
+  }
+}
+
+.money-input {
+  position: relative;
+
+  .currency-symbol {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--subtext0);
+  }
+
+  input {
+    padding-left: 32px !important;
+  }
+}

@@ -70,7 +70,19 @@ export class ProductService {
 	}
 
 	async listInactive(): Promise<Product[]> {
-		const allProducts = await this.repository.findAll(); // Necesitarás añadir este método al repositorio
+		const allProducts = await this.repository.findAll();
 		return allProducts.filter((p) => !p.isActive);
+	}
+
+	async listAll(): Promise<Product[]> {
+		return await this.repository.findAll();
+	}
+
+	async toggleStatus(id: ProductId): Promise<void> {
+		const product = await this.repository.findById(id);
+		if (!product) throw new Error('Producto no encontrado');
+
+		product.isActive ? product.deactivate() : product.activate();
+		await this.repository.save(product);
 	}
 }

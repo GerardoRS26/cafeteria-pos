@@ -19,7 +19,8 @@ const config = {
 			'@infrastructure': './src/core/infrastructure',
 			'@presentation': './src/core/presentation',
 			'@shared': './src/core/shared',
-			'@application': './src/core/application'
+			'@application': './src/core/application',
+			'@styles': './src/app/styles'
 		},
 		files: {
 			appTemplate: 'src/app/app.html',

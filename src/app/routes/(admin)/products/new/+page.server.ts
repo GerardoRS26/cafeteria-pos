@@ -1,4 +1,3 @@
-// src/app/routes/(admin)/products/new/+page.server.ts
 import { ProductService } from '@application/product/product-service';
 import { DrizzleProductRepository } from '@infrastructure/db/drizzle/product-repository';
 import { ProductId } from '@domain/product/value-objects/product-id';

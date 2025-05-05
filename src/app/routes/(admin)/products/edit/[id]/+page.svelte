@@ -1,25 +1,39 @@
-<!-- src/routes/(admin)/products/new/+page.svelte -->
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import type { ActionResult } from '@sveltejs/kit';
+	import type { PageData as OriginalPageData } from './$types';
 
+	interface Product {
+		id: string;
+		name: string;
+		description: string;
+		price: number;
+		cost: number;
+	}
+
+	interface PageData extends OriginalPageData {
+		product: Product;
+	}
+
+	export let data: PageData;
 	let formError: string | null = null;
 	let formData = {
-		name: '',
-		description: '',
-		price: '0.00',
-		cost: '0.00'
+		name: data.product.name,
+		description: data.product.description,
+		price: data.product.price.toString(),
+		cost: data.product.cost.toString()
 	};
 
 	async function handleSubmit({ result }: { result: ActionResult }) {
 		if (result?.type === 'failure') {
-			formError = result.data?.error || 'Error al crear el producto';
+			formError = result.data?.error || 'Error al actualizar el producto';
+			formData = result.data?.formData || formData;
 		}
 	}
 </script>
 
 <div class="form-container">
-	<h1 class="form-title">Nuevo Producto</h1>
+	<h1 class="form-title">Editar Producto</h1>
 
 	{#if formError}
 		<div class="error-message">
@@ -28,6 +42,8 @@
 	{/if}
 
 	<form method="POST" use:enhance={handleSubmit}>
+		<input type="hidden" name="id" value={data.product.id} />
+
 		<div class="form-group">
 			<label for="name" class="form-label">Nombre*</label>
 			<input
@@ -89,7 +105,7 @@
 
 		<div class="form-actions">
 			<a href="/admin/products" class="btn btn-secondary">Cancelar</a>
-			<button type="submit" class="btn btn-primary"> Guardar Producto </button>
+			<button type="submit" class="btn btn-primary"> Actualizar Producto </button>
 		</div>
 	</form>
 </div>

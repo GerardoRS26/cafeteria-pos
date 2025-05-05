@@ -43,7 +43,8 @@ export class DrizzleProductRepository implements ProductRepository {
 			name: raw.name,
 			description: raw.description ?? '',
 			price: new Money(raw.price),
-			cost: new Money(raw.cost)
+			cost: new Money(raw.cost),
+			isActive: raw.isActive
 		});
 	}
 
