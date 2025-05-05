@@ -21,7 +21,7 @@ export class ProductService {
 		if (await this.repository.findById(params.id)) {
 			throw new Error('Product already exists');
 		}
-		const product = new Product({ ...params });
+		const product = new Product({ ...params, isActive: true });
 		await this.repository.save(product);
 	}
 

@@ -1,27 +1,135 @@
 <script lang="ts">
-	let { data } = $props();
-	let showInactive = $state(false);
+	let { data } = $props<{
+		data: {
+			products: {
+				id: string;
+				name: string;
+				price: number;
+				isActive: boolean;
+				description?: string;
+			}[];
+			user?: {
+				role: 'admin' | 'seller';
+			};
+		};
+	}>();
 
-	let filteredProducts = $derived(
-		showInactive ? data.products : data.products.filter((p) => p.isActive)
+	// Estados de búsqueda y filtrado
+	let showInactive = $state(false);
+	let searchQuery = $state('');
+	let showSuggestions = $state(false);
+	let focusedSuggestionIndex = $state(-1);
+
+	// Computar productos filtrados
+	const filteredProducts = $derived(
+		data.products
+			.filter((p) => showInactive || p.isActive)
+			.filter((p) => searchQuery === '' || p.name.toLowerCase().includes(searchQuery.toLowerCase()))
 	);
+
+	// Computar sugerencias para autocompletado
+	const suggestions = $derived(
+		searchQuery.length > 1
+			? Array.from(
+					new Set(
+						data.products
+							.filter((p) => showInactive || p.isActive)
+							.map((p) => p.name)
+							.filter((name) => name.toLowerCase().includes(searchQuery.toLowerCase()))
+							.slice(0, 5) // Limitar a 5 sugerencias
+					)
+				)
+			: []
+	);
+
+	// Manejar selección de sugerencia
+	function selectSuggestion(suggestion: string) {
+		searchQuery = suggestion;
+		showSuggestions = false;
+	}
+
+	// Manejar eventos de teclado
+	function handleKeydown(e: KeyboardEvent) {
+		switch (e.key) {
+			case 'ArrowDown':
+				e.preventDefault();
+				focusedSuggestionIndex = Math.min(focusedSuggestionIndex + 1, suggestions.length - 1);
+				break;
+			case 'ArrowUp':
+				e.preventDefault();
+				focusedSuggestionIndex = Math.max(focusedSuggestionIndex - 1, -1);
+				break;
+			case 'Enter':
+				if (focusedSuggestionIndex >= 0) {
+					e.preventDefault();
+					selectSuggestion(suggestions[focusedSuggestionIndex]);
+				}
+				break;
+			case 'Escape':
+				showSuggestions = false;
+				break;
+		}
+	}
 
 	const isAdmin = $derived(data.user?.role === 'admin');
 </script>
 
 <div class="page-container">
 	<h1 class="page-title">Gestión de Productos</h1>
+
 	{#if isAdmin}
 		<div class="actions-header">
-			<div class="status-filter">
-				<label class="toggle-container">
-					<span class="toggle-switch">
-						<input type="checkbox" bind:checked={showInactive} />
-						<span class="slider round"></span>
-					</span>
-					<span class="toggle-label">Mostrar inactivos</span>
-				</label>
+			<div class="search-and-filter">
+				<!-- Barra de búsqueda -->
+				<div class="search-container">
+					<input
+						type="text"
+						bind:value={searchQuery}
+						on:input={() => {
+							showSuggestions = searchQuery.length > 1;
+							focusedSuggestionIndex = -1;
+						}}
+						on:focus={() => (showSuggestions = searchQuery.length > 1)}
+						on:blur={() => setTimeout(() => (showSuggestions = false), 200)}
+						on:keydown={handleKeydown}
+						placeholder="Buscar productos..."
+						class="search-input"
+					/>
+					{#if searchQuery}
+						<button
+							on:click={() => (searchQuery = '')}
+							class="search-clear"
+							aria-label="Limpiar búsqueda"
+						>
+							×
+						</button>
+					{/if}
+					{#if showSuggestions && suggestions.length > 0}
+						<ul class="suggestions-list">
+							{#each suggestions as suggestion, index}
+								<li
+									class:selected={index === focusedSuggestionIndex}
+									on:mousedown={() => selectSuggestion(suggestion)}
+								>
+									{suggestion}
+								</li>
+							{/each}
+						</ul>
+					{/if}
+				</div>
+
+				<!-- Filtro de estado -->
+				<div class="status-filter">
+					<label class="toggle-container">
+						<span class="toggle-switch">
+							<input type="checkbox" bind:checked={showInactive} />
+							<span class="slider round"></span>
+						</span>
+						<span class="toggle-label">Mostrar inactivos</span>
+					</label>
+				</div>
 			</div>
+
 			<a href="/products/admin/new" class="btn btn-primary"> + Nuevo Producto </a>
 		</div>
 	{/if}
@@ -53,6 +161,8 @@
 			<div class="empty-state">
 				{#if showInactive}
 					<p>No hay productos registrados</p>
+				{:else if searchQuery}
+					<p>No se encontraron productos para "{searchQuery}"</p>
 				{:else}
 					<p>No hay productos activos</p>
 				{/if}
@@ -62,6 +172,7 @@
 </div>
 
 <style>
+	/* Estilos existentes se mantienen igual */
 	.page-container {
 		max-width: 1200px;
 		margin: 2rem auto;
@@ -81,8 +192,78 @@
 		justify-content: space-between;
 		align-items: center;
 		margin-bottom: 1.5rem;
+		gap: 1rem;
 	}
 
+	.search-and-filter {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+		flex-grow: 1;
+	}
+
+	.search-container {
+		position: relative;
+		flex-grow: 1;
+		max-width: 400px;
+	}
+
+	.search-input {
+		width: 100%;
+		padding: 0.75rem 2rem 0.75rem 1rem;
+		background: var(--surface0);
+		border: 1px solid var(--surface2);
+		border-radius: 8px;
+		color: var(--text);
+		font-size: 1rem;
+		transition: border-color 0.2s ease;
+	}
+
+	.search-input:focus {
+		outline: none;
+		border-color: var(--mauve);
+		box-shadow: 0 0 0 2px color-mix(in srgb, var(--mauve) 20%, transparent);
+	}
+
+	.search-clear {
+		position: absolute;
+		right: 0.75rem;
+		top: 50%;
+		transform: translateY(-50%);
+		background: none;
+		border: none;
+		color: var(--subtext0);
+		font-size: 1.25rem;
+		cursor: pointer;
+		padding: 0.25rem;
+	}
+
+	.suggestions-list {
+		position: absolute;
+		width: 100%;
+		background: var(--surface0);
+		border: 1px solid var(--surface1);
+		border-radius: 0 0 8px 8px;
+		margin-top: -1px;
+		max-height: 200px;
+		overflow-y: auto;
+		z-index: 10;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	}
+
+	.suggestions-list li {
+		padding: 0.75rem 1rem;
+		cursor: pointer;
+		color: var(--text);
+	}
+
+	.suggestions-list li:hover,
+	.suggestions-list li.selected {
+		background: var(--surface1);
+		color: var(--mauve);
+	}
+
+	/* El resto de tus estilos existentes se mantienen igual */
 	.btn {
 		padding: 0.75rem 1.5rem;
 		border-radius: 8px;
@@ -181,7 +362,6 @@
 	.status-filter {
 		display: flex;
 		align-items: center;
-		gap: 1rem;
 	}
 
 	.toggle-container {
@@ -239,6 +419,31 @@
 	.toggle-label {
 		font-size: 0.9rem;
 		color: var(--subtext1);
-		user-select: none; /* Evita que el texto se seleccione al hacer clic */
+		user-select: none;
+	}
+
+	.empty-state {
+		grid-column: 1 / -1;
+		text-align: center;
+		padding: 2rem;
+		background: var(--surface0);
+		border-radius: 12px;
+	}
+
+	@media (max-width: 768px) {
+		.actions-header {
+			flex-direction: column;
+			align-items: stretch;
+			gap: 1rem;
+		}
+
+		.search-and-filter {
+			flex-direction: column;
+			gap: 1rem;
+		}
+
+		.search-container {
+			max-width: 100%;
+		}
 	}
 </style>
