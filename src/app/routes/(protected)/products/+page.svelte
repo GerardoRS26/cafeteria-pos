@@ -176,21 +176,6 @@
 </div>
 
 <style>
-	/* Estilos existentes se mantienen igual */
-	.page-container {
-		max-width: 1200px;
-		margin: 2rem auto;
-		padding: 0 1rem;
-	}
-
-	.page-title {
-		font-size: 2rem;
-		color: var(--rosewater);
-		margin-bottom: 1.5rem;
-		padding-bottom: 0.5rem;
-		border-bottom: 2px solid var(--surface1);
-	}
-
 	.actions-header {
 		display: flex;
 		justify-content: space-between;

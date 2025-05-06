@@ -6,7 +6,6 @@ import { redirect } from '@sveltejs/kit';
 export const handle: Handle = async ({ event, resolve }) => {
 	const sessionToken = event.cookies.get(auth.sessionCookieName);
 	const currentPath = event.url.pathname;
-	console.log({ url: event.url });
 	if (currentPath === '/login') return resolve(event);
 
 	if (event.url.search === '?/logout') {

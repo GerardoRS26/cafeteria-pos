@@ -19,7 +19,6 @@ export class DrizzleProductRepository implements ProductRepository {
 
 	async findAllActive(): Promise<Product[]> {
 		const results = await db.select().from(products).where(eq(products.isActive, true)).all();
-		console.log({ results });
 		return results.map(this.toDomain);
 	}
 

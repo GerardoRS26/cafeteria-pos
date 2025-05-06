@@ -71,7 +71,6 @@
 	}
 
 	async function handleSubmit({ result }: { result: ActionResult }) {
-		console.log('result', { result });
 		if (result?.type === 'success') {
 			formSuccess = 'Producto actualizado correctamente';
 			formError = null;
