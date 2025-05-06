@@ -9,6 +9,7 @@
 				username: string;
 				role: 'admin' | 'seller';
 			};
+			totalActiveProducts: number;
 		};
 	}>();
 
@@ -25,18 +26,13 @@
 				<div class="welcome-stats">
 					<div class="stat-card">
 						<span class="stat-icon">📦</span>
-						<span class="stat-value">24</span>
+						<span class="stat-value">{data.totalActiveProducts}</span>
 						<span class="stat-label">Productos Activos</span>
 					</div>
 					<div class="stat-card">
 						<span class="stat-icon">💰</span>
 						<span class="stat-value">$1,240</span>
 						<span class="stat-label">Ventas Hoy</span>
-					</div>
-					<div class="stat-card">
-						<span class="stat-icon">👥</span>
-						<span class="stat-value">3</span>
-						<span class="stat-label">Usuarios</span>
 					</div>
 				</div>
 			{/if}

@@ -172,7 +172,7 @@
 		</div>
 
 		<div class="form-actions">
-			<a href="/admin/products" class="btn btn-secondary">Cancelar</a>
+			<a href="/products" class="btn btn-secondary">Cancelar</a>
 			<button type="submit" class="btn btn-primary" disabled={Object.values(errors).some(Boolean)}>
 				Actualizar Producto
 			</button>
