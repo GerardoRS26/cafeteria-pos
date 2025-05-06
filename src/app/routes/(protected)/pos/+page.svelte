@@ -57,6 +57,7 @@
 		if (!activeOrder) return;
 		activeOrder.closedAt = new Date();
 		activeOrder.closed = true;
+		activeOrder = null;
 	}
 </script>
 

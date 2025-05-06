@@ -4,7 +4,6 @@ import { DrizzleProductRepository } from '@infrastructure/db/drizzle/product-rep
 export async function load(event) {
 	const service = new ProductService(new DrizzleProductRepository());
 	const products = await service.listActive();
-	console.log('products', products);
 	return {
 		products: products.map((p) => ({
 			id: p.id.value,

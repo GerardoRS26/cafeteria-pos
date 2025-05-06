@@ -6,7 +6,7 @@ import { encodeBase64url, encodeHexLowerCase } from '@oslojs/encoding';
 import { db } from '@infrastructure/db/drizzle/client';
 import * as table from '@infrastructure/db/drizzle/schema';
 
-const DAY_IN_MS = 1000 * 60 * 60 * 24;
+const DAY_IN_MS = 1000 * 60 * 60 * 1;
 
 export const sessionCookieName = 'auth-session';
 

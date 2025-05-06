@@ -57,51 +57,11 @@
 </div>
 
 <style>
-	.page-container {
-		max-width: 1200px;
-		margin: 2rem auto;
-		padding: 0 1rem;
-	}
-
-	.page-title {
-		font-size: 2rem;
-		color: var(--rosewater);
-		margin-bottom: 1.5rem;
-		padding-bottom: 0.5rem;
-		border-bottom: 2px solid var(--surface1);
-	}
-
 	.actions-header {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		margin-bottom: 1.5rem;
-	}
-
-	.btn {
-		padding: 0.75rem 1.5rem;
-		border-radius: 8px;
-		font-weight: 500;
-		cursor: pointer;
-		transition: all 0.2s ease;
-
-		&.primary {
-			background-color: var(--mauve);
-			color: var(--crust);
-
-			&:hover {
-				background-color: color-mix(in srgb, var(--mauve) 90%, white);
-			}
-		}
-
-		&.secondary {
-			background-color: var(--surface1);
-			color: var(--text);
-
-			&:hover {
-				background-color: var(--surface2);
-			}
-		}
 	}
 
 	.products-grid {

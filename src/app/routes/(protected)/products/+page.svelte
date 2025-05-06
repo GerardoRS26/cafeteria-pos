@@ -252,33 +252,6 @@
 		color: var(--mauve);
 	}
 
-	/* El resto de tus estilos existentes se mantienen igual */
-	.btn {
-		padding: 0.75rem 1.5rem;
-		border-radius: 8px;
-		font-weight: 500;
-		cursor: pointer;
-		transition: all 0.2s ease;
-
-		&.primary {
-			background-color: var(--mauve);
-			color: var(--crust);
-
-			&:hover {
-				background-color: color-mix(in srgb, var(--mauve) 90%, white);
-			}
-		}
-
-		&.secondary {
-			background-color: var(--surface1);
-			color: var(--text);
-
-			&:hover {
-				background-color: var(--surface2);
-			}
-		}
-	}
-
 	.products-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

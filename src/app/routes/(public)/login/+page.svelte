@@ -79,11 +79,4 @@
 
 <style>
 	@import '@styles/forms';
-
-	.form-actions {
-		display: flex;
-		justify-content: space-between;
-		gap: 1rem;
-		margin-top: 2rem;
-	}
 </style>
