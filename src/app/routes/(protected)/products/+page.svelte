@@ -23,19 +23,25 @@
 	// Computar productos filtrados
 	const filteredProducts = $derived(
 		data.products
-			.filter((p) => showInactive || p.isActive)
-			.filter((p) => searchQuery === '' || p.name.toLowerCase().includes(searchQuery.toLowerCase()))
+			.filter(
+				(p: { id: string; name: string; price: number; isActive: boolean; description?: string }) =>
+					showInactive || p.isActive
+			)
+			.filter(
+				(p: { name: string }) =>
+					searchQuery === '' || p.name.toLowerCase().includes(searchQuery.toLowerCase())
+			)
 	);
 
 	// Computar sugerencias para autocompletado
-	const suggestions = $derived(
+	const suggestions: string[] = $derived(
 		searchQuery.length > 1
 			? Array.from(
 					new Set(
 						data.products
-							.filter((p) => showInactive || p.isActive)
-							.map((p) => p.name)
-							.filter((name) => name.toLowerCase().includes(searchQuery.toLowerCase()))
+							.filter((p: { isActive: any }) => showInactive || p.isActive)
+							.map((p: { name: string }) => p.name)
+							.filter((name: string) => name.toLowerCase().includes(searchQuery.toLowerCase()))
 							.slice(0, 5) // Limitar a 5 sugerencias
 					)
 				)
