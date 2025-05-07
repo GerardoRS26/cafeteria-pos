@@ -67,7 +67,7 @@
 		{/if}
 
 		<div class="form-actions">
-			<button type="button" on:click={() => (isLoginView = !isLoginView)} class="btn btn-secondary">
+			<button type="button" onclick={() => (isLoginView = !isLoginView)} class="btn btn-secondary">
 				{isLoginView ? 'Crear cuenta' : 'Ya tengo cuenta'}
 			</button>
 			<button type="submit" class="btn btn-primary">

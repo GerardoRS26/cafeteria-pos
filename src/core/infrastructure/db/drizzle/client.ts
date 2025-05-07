@@ -7,7 +7,10 @@ if (!process.env.DATABASE_AUTH_TOKEN) throw new Error('DATABASE_AUTH_TOKEN is no
 
 const client = createClient({
 	url: process.env.DATABASE_URL as string,
+	syncUrl: process.env.DATABASE_SYNC_URL,
+	syncInterval: 60,
 	authToken: process.env.DATABASE_AUTH_TOKEN
 });
+await client.sync();
 
 export const db = drizzle(client, { schema });
