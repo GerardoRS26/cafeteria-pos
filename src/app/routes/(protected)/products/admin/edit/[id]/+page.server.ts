@@ -2,7 +2,7 @@ import { ProductService } from '@application/product/product-service';
 import { DrizzleProductRepository } from '@domain/product/repositories/product-repository';
 import { ProductId } from '@domain/product/value-objects/product-id';
 import { Money } from '@shared/value-objects/money';
-import { error, fail, redirect } from '@sveltejs/kit';
+import { error, fail, type ActionResult } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
 import { isRedirectError } from '$lib/utils';
 
@@ -49,7 +49,7 @@ export const actions: Actions = {
 				cost: new Money(costValue)
 			});
 			console.log('Product updated successfully');
-			throw redirect(303, `/products?success=Producto "${name}" actualizado correctamente`);
+			return { result: { type: 'success' } as ActionResult };
 		} catch (err) {
 			if (isRedirectError(err)) {
 				throw err;

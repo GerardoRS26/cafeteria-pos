@@ -2,18 +2,20 @@
 	const {
 		type = 'info',
 		message,
-		dismissible = true
+		dismissible = true,
+		dismiss
 	} = $props<{
 		type?: 'success' | 'error' | 'warning' | 'info';
 		message: string;
 		dismissible?: boolean;
+		dismiss: () => void;
 	}>();
 </script>
 
-<div class="alert" class:alert-{type}>
+<div class={['alert', type]}>
 	<span class="alert-message">{message}</span>
 	{#if dismissible}
-		<button class="alert-close" on:click>×</button>
+		<button class="alert-close" onclick={dismiss}>×</button>
 	{/if}
 </div>
 
@@ -27,13 +29,13 @@
 		position: relative;
 	}
 
-	.alert-success {
+	.alert.success {
 		background-color: color-mix(in srgb, var(--green) 15%, transparent);
 		border-left: 4px solid var(--green);
 		color: var(--green);
 	}
 
-	.alert-error {
+	.alert.error {
 		background-color: color-mix(in srgb, var(--red) 15%, transparent);
 		border-left: 4px solid var(--red);
 		color: var(--red);
@@ -46,6 +48,7 @@
 		font-size: 1.25rem;
 		cursor: pointer;
 		margin-left: auto;
-		padding-left: 0.5rem;
+		padding: 0;
+		display: flex;
 	}
 </style>

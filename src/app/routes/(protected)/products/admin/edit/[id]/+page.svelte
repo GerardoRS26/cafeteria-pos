@@ -70,14 +70,16 @@
 		touched[field] = true;
 	}
 
-	async function handleSubmit({ result }: { result: ActionResult }) {
-		if (result?.type === 'success') {
-			formSuccess = 'Producto actualizado correctamente';
-			formError = null;
-		} else if (result?.type === 'failure') {
-			formError = result.data?.error || 'Error al actualizar el producto';
-			formData = result.data?.fields || formData;
-		}
+	async function handleSubmit({ formElement, formData, action, cancel }: ActionResult) {
+		return async ({ result }: { result: ActionResult }) => {
+			if (result?.type === 'success') {
+				formSuccess = 'Producto actualizado correctamente';
+				formError = null;
+			} else if (result?.type === 'failure') {
+				formError = result.data?.error || 'Error al actualizar el producto';
+				formData = result.data?.fields || formData;
+			}
+		};
 	}
 </script>
 
@@ -86,11 +88,11 @@
 
 	<!-- Alertas -->
 	{#if formSuccess}
-		<Alert type="success" message={formSuccess} on:dismiss={() => (formSuccess = null)} />
+		<Alert type="success" message={formSuccess} dismiss={() => (formSuccess = null)} />
 	{/if}
 
 	{#if formError}
-		<Alert type="error" message={formError} on:dismiss={() => (formError = null)} />
+		<Alert type="error" message={formError} dismiss={() => (formError = null)} />
 	{/if}
 
 	<form method="POST" use:enhance={handleSubmit}>
