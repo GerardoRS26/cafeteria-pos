@@ -1,6 +1,6 @@
 import { ProductService } from '@application/product/product-service';
 import { ProductId } from '@domain/product/value-objects/product-id';
-import { DrizzleProductRepository } from '@infrastructure/db/drizzle/product-repository';
+import { DrizzleProductRepository } from '@domain/product/repositories/product-repository';
 import { fail, redirect } from '@sveltejs/kit';
 
 export async function load() {

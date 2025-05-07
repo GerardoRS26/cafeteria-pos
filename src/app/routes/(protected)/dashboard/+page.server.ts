@@ -1,7 +1,7 @@
 import { redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { ProductService } from '@application/product/product-service';
-import { DrizzleProductRepository } from '@infrastructure/db/drizzle/product-repository';
+import { DrizzleProductRepository } from '@domain/product/repositories/product-repository';
 
 export const load: PageServerLoad = async (event) => {
 	if (!event.locals.user) {

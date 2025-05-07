@@ -13,8 +13,8 @@
 		};
 	}>();
 
-	const currentPath = page.url.pathname;
-	const isAdmin = $derived(data.user.role === 'admin');
+	// const currentPath = page.url.pathname;
+	const isAdmin = $derived(data.user?.role === 'admin');
 </script>
 
 <div class="dashboard-container">
