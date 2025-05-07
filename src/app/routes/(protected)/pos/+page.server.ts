@@ -1,5 +1,5 @@
 import { ProductService } from '@application/product/product-service';
-import { DrizzleProductRepository } from '@infrastructure/db/drizzle/product-repository';
+import { DrizzleProductRepository } from '@domain/product/repositories/product-repository';
 
 export async function load(event) {
 	const service = new ProductService(new DrizzleProductRepository());
