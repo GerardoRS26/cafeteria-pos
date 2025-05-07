@@ -1,5 +1,5 @@
 import { ProductId } from '../value-objects/product-id';
-import { Money } from '../value-objects/money';
+import { Money } from '../../../shared/value-objects/money';
 
 /**
  * Represents a product in the point-of-sale system.

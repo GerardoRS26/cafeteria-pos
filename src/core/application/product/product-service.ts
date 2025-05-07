@@ -1,7 +1,7 @@
 import { Product } from '@domain/product/aggregates/product';
-import type { ProductRepository } from '@domain/product/repositories/product-repository';
+import type { ProductRepository } from '@domain/product/repositories/repository';
 import { ProductId } from '@domain/product/value-objects/product-id';
-import { Money } from '@domain/product/value-objects/money';
+import { Money } from '@shared/value-objects/money';
 
 /**
  * Handles all product use cases.
@@ -82,7 +82,11 @@ export class ProductService {
 		const product = await this.repository.findById(id);
 		if (!product) throw new Error('Producto no encontrado');
 
-		product.isActive ? product.deactivate() : product.activate();
+		if (product.isActive) {
+			product.deactivate();
+		} else {
+			product.activate();
+		}
 		await this.repository.save(product);
 	}
 }
