@@ -9,21 +9,57 @@
 	}>();
 
 	let amountReceived = $state(0);
-	let discount = $state(0);
+
+	let discount = $state({
+		amount: 0,
+		reason: ''
+	});
+
+	let extras = $state<
+		Array<{
+			amount: number;
+			description: string;
+		}>
+	>([]);
+
+	let newExtra = $state({
+		amount: 0,
+		description: ''
+	});
 
 	const subtotal = $derived(
-		() => activeOrder?.items.reduce((sum, item) => sum + item.product.price * item.quantity, 0) || 0
+		() =>
+			activeOrder?.items.reduce(
+				(sum: number, item: { product: { price: number }; quantity: number }) =>
+					sum + item.product.price * item.quantity,
+				0
+			) || 0
 	);
 
-	const total = $derived(() => subtotal() - discount);
+	const total = $derived(() => {
+		const discountAmount = discount.amount || 0;
+		const extrasAmount = extras.reduce((sum, extra) => sum + extra.amount, 0);
+		return subtotal() - discountAmount + extrasAmount;
+	});
 
 	const change = $derived(() => amountReceived - total());
+
+	function addExtra() {
+		if (newExtra.amount !== 0 && newExtra.description) {
+			extras = [...extras, { ...newExtra }];
+			newExtra = { amount: 0, description: '' };
+		}
+	}
+
+	function removeExtra(index: number) {
+		extras = extras.filter((_, i) => i !== index);
+	}
 </script>
 
 <div class="order-column" class:closed={activeOrder?.closed}>
 	{#if activeOrder}
 		<div class="column-header">
-			<h2>Mesa {activeOrder.table}</h2>
+			<h2>Mesa {activeOrder.tableIdentifier}</h2>
 			<div class="order-status">
 				{#if activeOrder.closed}
 					<span class="closed-badge">Cerrada</span>
@@ -42,16 +78,16 @@
 					</div>
 					<div class="item-controls">
 						<button
-							on:click={() => updateItemQuantity(index, -1)}
+							onclick={() => updateItemQuantity(index, -1)}
 							disabled={item.quantity <= 1 || activeOrder.closed}
 						>
 							−
 						</button>
 						<span>{item.quantity}</span>
-						<button on:click={() => updateItemQuantity(index, 1)} disabled={activeOrder.closed}>
+						<button onclick={() => updateItemQuantity(index, 1)} disabled={activeOrder.closed}>
 							+
 						</button>
-						<button on:click={() => removeItem(index)} disabled={activeOrder.closed}> 🗑️ </button>
+						<button onclick={() => removeItem(index)} disabled={activeOrder.closed}> 🗑️ </button>
 					</div>
 				</li>
 			{/each}
@@ -62,16 +98,55 @@
 				<span>Subtotal:</span>
 				<span>${subtotal().toFixed(2)}</span>
 			</div>
+			<!-- Sección de Extras -->
+			<div class="extras-section">
+				<h3>Extras</h3>
+				{#each extras as extra, index}
+					<div class="extra-item">
+						<div class="extra-info">
+							<span>{extra.description}</span>
+							<span>${extra.amount.toFixed(2)}</span>
+						</div>
+						<button onclick={() => removeExtra(index)} disabled={activeOrder.closed}> 🗑️ </button>
+					</div>
+				{/each}
 
-			<div class="discount-input">
-				<label>Descuento/Promoción:</label>
-				<input
-					type="number"
-					bind:value={discount}
-					min="0"
-					class="form-input"
-					disabled={activeOrder.closed}
-				/>
+				{#if !activeOrder.closed}
+					<div class="add-extra">
+						<label>Monto Extra:</label>
+						<input type="number" bind:value={newExtra.amount} min="0" class="form-input" />
+						<label>Descripción:</label>
+						<input
+							type="text"
+							bind:value={newExtra.description}
+							placeholder="Descripción del extra"
+							class="form-input"
+						/>
+						<button onclick={addExtra} class="btn btn-secondary"> Añadir Extra </button>
+					</div>
+				{/if}
+			</div>
+
+			<div class="discount-section">
+				<h3>Descuento</h3>
+				<div class="discount-inputs">
+					<label>Monto:</label>
+					<input
+						type="number"
+						bind:value={discount.amount}
+						min="0"
+						class="form-input"
+						disabled={activeOrder.closed}
+					/>
+					<label>Descripción:</label>
+					<input
+						type="text"
+						bind:value={discount.reason}
+						placeholder="Motivo del descuento"
+						class="form-input"
+						disabled={activeOrder.closed}
+					/>
+				</div>
 			</div>
 
 			<div class="total-line">
@@ -81,13 +156,20 @@
 
 			{#if !activeOrder.closed}
 				<div class="payment-section">
-					<label>Monto Recibido:</label>
-					<input type="number" bind:value={amountReceived} min="0" step="0.01" class="form-input" />
+					<label for="amount-received">Monto Recibido:</label>
+					<input
+						id="amount-received"
+						type="number"
+						bind:value={amountReceived}
+						min="0"
+						step="0.01"
+						class="form-input"
+					/>
 					<div class="change">
 						<span>Cambio:</span>
 						<span>${change().toFixed(2)}</span>
 					</div>
-					<button on:click={closeOrder} class="btn btn-primary" disabled={amountReceived < total}>
+					<button onclick={closeOrder} class="btn btn-primary" disabled={amountReceived < total()}>
 						Cerrar Comanda
 					</button>
 				</div>
@@ -283,6 +365,67 @@
 		align-items: center;
 		height: 100%;
 		color: var(--subtext0);
+	}
+
+	.discount-section,
+	.extras-section {
+		margin: 1rem 0;
+		padding: 1rem;
+		background-color: var(--surface1);
+		border-radius: 8px;
+	}
+
+	.discount-section h3,
+	.extras-section h3 {
+		margin-top: 0;
+		margin-bottom: 0.75rem;
+		font-size: 1rem;
+		color: var(--subtext1);
+	}
+
+	.discount-inputs {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 0.5rem;
+		align-items: center;
+	}
+
+	.extras-section {
+		border-top: 1px dashed var(--surface1);
+	}
+
+	.extra-item {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.5rem;
+		margin-bottom: 0.5rem;
+		background-color: var(--surface2);
+		border-radius: 4px;
+	}
+
+	.extra-info {
+		display: flex;
+		justify-content: space-between;
+		flex-grow: 1;
+		margin-right: 0.5rem;
+	}
+
+	.add-extra {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 0.5rem;
+		align-items: center;
+		margin-top: 1rem;
+	}
+
+	.add-extra button {
+		grid-column: span 2;
+	}
+
+	.btn-secondary {
+		background-color: var(--surface1);
+		color: var(--text);
 	}
 
 	@media (max-width: 768px) {

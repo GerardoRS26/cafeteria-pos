@@ -2,6 +2,7 @@
 	import { sidebar } from '@stores/sidebar';
 	import { page } from '$app/state';
 	import { enhance } from '$app/forms';
+	import Heartbeat from '$lib/components/Heartbeat.svelte';
 	let { children } = $props();
 
 	const isAdmin = $derived(page.data?.user?.role === 'admin');
@@ -72,6 +73,7 @@
 				</ul>
 			</nav>
 
+			<!-- <Heartbeat endpoint="/api/sync" interval={30 * 60 * 1000} /> -->
 			<!-- Botón para colapsar/expandir -->
 			<button
 				onclick={sidebar.toggle}
@@ -103,6 +105,8 @@
 {:else}
 	{@render children()}
 {/if}
+
+<Heartbeat endpoint="/api/sync" interval={30 * 60 * 1000} />
 
 <style>
 	/* Estructura principal */
@@ -311,6 +315,7 @@
 		overflow-y: auto;
 		height: 100vh;
 		box-sizing: border-box;
+		overflow: hidden;
 	}
 
 	/* Responsive */

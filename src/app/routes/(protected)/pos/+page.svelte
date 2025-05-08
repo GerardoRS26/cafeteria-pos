@@ -3,24 +3,47 @@
 	import OrderDetail from './components/OrderDetail.svelte';
 	import ProductsList from './components/ProductsList.svelte';
 	import type { POSData, Order, Product } from './components/types';
+	import { enhance } from '$app/forms';
 
 	const { data } = $props<POSData>();
 
 	// State management
-	let orders = $state<Order[]>([]);
+	let orders = $state<Order[]>([...data.openOrders, ...data.paidOrders]);
 	let activeOrder = $state<Order | null>(null);
+	let formError = $state<string | null>(null);
 
-	// Functions
-	function createOrder(table: string) {
+	// Función optimista para crear orden
+	async function handleCreateOrder(order: Order) {
+		const tableIdentifier = formData.get('tableIdentifier') as string;
 		const newOrder: Order = {
 			id: crypto.randomUUID(),
-			table,
+			tableIdentifier,
 			items: [],
-			closed: false,
+			status: 'open',
 			createdAt: new Date()
 		};
+
+		// Actualización optimista
 		orders.push(newOrder);
-		activeOrder = orders[orders.length - 1];
+		activeOrder = newOrder;
+	}
+
+	// Función optimista para cerrar orden
+	async function handleCloseOrder(formData: FormData) {
+		if (!activeOrder) return;
+
+		// Actualización optimista
+		activeOrder.updatedAt = new Date();
+		activeOrder.status = 'closed';
+		const closedOrder = activeOrder;
+		activeOrder = null;
+
+		return { orderId: closedOrder.id };
+	}
+
+	// Función para manejar errores del servidor
+	function handleFormError(result: { error?: string }) {
+		formError = result.error || null;
 	}
 
 	function setActiveOrder(order: Order) {
@@ -38,7 +61,7 @@
 			activeOrder.items.push({
 				product,
 				quantity: 1,
-				notes: ''
+				unitPrice: product.price
 			});
 		}
 	}
@@ -53,10 +76,26 @@
 		activeOrder.items.splice(index, 1);
 	}
 
+	async function deleteOrder(orderId: string) {
+		orders = orders.filter((order) => order.id !== orderId);
+		if (activeOrder?.id === orderId) {
+			const response = await fetch(`/api/orders/${orderId}`, {
+				method: 'DELETE',
+				headers: {
+					'content-type': 'application/json'
+				}
+			});
+			if (!response.ok) {
+				throw new Error(`Response status: ${response.status}`);
+			}
+			activeOrder = null;
+		}
+	}
+
 	function closeOrder() {
 		if (!activeOrder) return;
-		activeOrder.closedAt = new Date();
-		activeOrder.closed = true;
+		activeOrder.updatedAt = new Date();
+		activeOrder.status = 'closed';
 		activeOrder = null;
 	}
 </script>
@@ -65,7 +104,7 @@
 	<h1 class="page-title">Punto de Venta</h1>
 
 	<main class="pos-grid">
-		<OrdersList {data} {orders} {activeOrder} {createOrder} {setActiveOrder} />
+		<OrdersList {data} {orders} {activeOrder} {handleCreateOrder} {setActiveOrder} {deleteOrder} />
 
 		<OrderDetail {activeOrder} {closeOrder} {updateItemQuantity} {removeItem} />
 

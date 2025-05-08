@@ -4,7 +4,6 @@ import { DrizzleProductRepository } from '@domain/product/repositories/product-r
 import { fail, redirect } from '@sveltejs/kit';
 
 export async function load() {
-	console.log('Loading products...');
 	const service = new ProductService(new DrizzleProductRepository());
 	const products = await service.listAll();
 	return {

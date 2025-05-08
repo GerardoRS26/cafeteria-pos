@@ -4,6 +4,7 @@ import type { ProductRepository } from '@domain/product/repositories/repository'
 import { OrderId } from '@domain/order/value-objects/order-id';
 import { ProductId } from '@domain/product/value-objects/product-id';
 import { Money } from '@shared/value-objects/money';
+import { time } from 'console';
 
 /**
  * Handles all order use cases.
@@ -33,8 +34,16 @@ export class OrderService {
 			extras: []
 		});
 
+		console.log('before save', { time: new Date() });
 		await this.orderRepository.save(order);
+		console.log('after save', { time: new Date() });
 		return order;
+	}
+
+	async delete(orderId: string): Promise<void> {
+		console.log('before delete', { time: new Date() });
+		await this.orderRepository.delete(new OrderId(orderId));
+		console.log('after save', { time: new Date() });
 	}
 
 	// ---- Order Items Management ----
@@ -134,10 +143,6 @@ export class OrderService {
 		order.markAsPaid();
 		await this.orderRepository.save(order);
 		return order;
-	}
-
-	async delete(params: { orderId: OrderId }): Promise<void> {
-		await this.orderRepository.delete(params.orderId);
 	}
 
 	// ---- Query Methods ----

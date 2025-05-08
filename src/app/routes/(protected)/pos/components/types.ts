@@ -9,21 +9,33 @@ export type Product = {
 export type OrderItem = {
 	product: Product;
 	quantity: number;
-	notes: string;
+	unitPrice: number;
 };
 
 export type Order = {
 	id: string;
-	table: string;
+	tableIdentifier: string;
+	status: string;
 	items: OrderItem[];
-	closed: boolean;
+	discount?: Discount;
+	extras: Extra[];
 	createdAt: Date;
-	closedAt: Date;
+	updatedAt: Date;
 };
 
+export type Discount = {
+	amount: number;
+	reason: string;
+};
+export type Extra = {
+	amount: number;
+	description: string;
+};
 export type POSData = {
 	products: Product[];
 	user?: {
 		role: 'admin' | 'seller';
 	};
+	paidOrders: Order[];
+	openOrders: Order[];
 };

@@ -1,28 +1,47 @@
 <script lang="ts">
 	import type { Order, POSData } from './types';
 
-	const { data, orders, activeOrder, createOrder, setActiveOrder } = $props<{
+	const { data, orders, activeOrder, createOrder, setActiveOrder, deleteOrder } = $props<{
 		data: POSData;
 		orders: Order[];
 		activeOrder: Order | null;
-		createOrder: (table: string) => void;
+		handleCreateOrder: (order: Order) => void;
 		setActiveOrder: (order: Order) => void;
+		deleteOrder: (orderId: string) => void;
 	}>();
 
 	let tableInput = $state('');
 	let showClosedOrders = $state(false);
+	let orderToDelete = $state<string | null>(null); // Para controlar el modal de confirmación
 
 	// Filtrar comandas activas/cerradas
 	const filteredOrders = $derived(() =>
 		orders.filter((order) => (showClosedOrders ? order.closed : !order.closed))
 	);
 
-	// Ordenar comandas cerradas por fecha de cierre (más recientes primero)
 	const sortedOrders = $derived(() =>
 		showClosedOrders
 			? [...filteredOrders()].sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
 			: filteredOrders()
 	);
+
+	function confirmDelete(orderId: string) {
+		orderToDelete = orderId;
+	}
+
+	function cancelDelete() {
+		orderToDelete = null;
+	}
+
+	async function handleSubmit({ result }: { result: ActionResult }) {
+		if (result?.type === 'success') {
+			formSuccess = 'Producto actualizado correctamente';
+			formError = null;
+		} else if (result?.type === 'failure') {
+			formError = result.data?.error || 'Error al actualizar el producto';
+			formData = result.data?.fields || formData;
+		}
+	}
 </script>
 
 <div class="orders-column">
@@ -40,10 +59,19 @@
 
 	{#if !showClosedOrders}
 		<div class="new-order">
-			<input type="text" bind:value={tableInput} placeholder="Número de Mesa" class="form-input" />
-			<button onclick={() => createOrder(tableInput)} class="btn btn-primary">
-				Nueva Comanda
-			</button>
+			<form method="POST" action="?/createOrder" use:enhance={handleSubmit}>
+				<input
+					type="text"
+					name="tableIdentifier"
+					bind:value={tableInput}
+					placeholder="Número de Mesa"
+					class="form-input"
+					required
+				/>
+				<div class="form-actions">
+					<button type="submit" class="btn btn-primary"> Nueva Comanda </button>
+				</div>
+			</form>
 		</div>
 	{/if}
 
@@ -56,7 +84,7 @@
 				class="order-item"
 			>
 				<div class="order-header">
-					<span class="order-table">Mesa {order.table}</span>
+					<span class="order-table">Mesa {order.tableIdentifier}</span>
 					<span class="order-time">
 						{order.createdAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
 					</span>
@@ -76,18 +104,54 @@
 				{#if order.closed}
 					<div class="order-closed-info">
 						<span class="order-closed-time">
-							Cerrada: {order.closedAt?.toLocaleTimeString([], {
+							Cerrada: {order.closedAt.toLocaleTimeString([], {
 								hour: '2-digit',
 								minute: '2-digit'
 							})}
-							({order.closedAt?.toLocaleDateString()})
+							({order.closedAt.toLocaleDateString()})
 						</span>
 					</div>
 				{/if}
+
+				<div class="order-actions">
+					<span
+						class="delete-btn"
+						role="button"
+						tabindex="0"
+						onclick={(e) => {
+							e.preventDefault();
+							confirmDelete(order.id);
+						}}
+						title="Eliminar comanda"
+					>
+						🗑️
+					</span>
+				</div>
 			</button>
 		{/each}
 	</ul>
 </div>
+
+{#if orderToDelete}
+	<div class="modal-overlay">
+		<div class="modal">
+			<h3>¿Eliminar comanda?</h3>
+			<p>Esta acción no se puede deshacer</p>
+			<div class="modal-actions">
+				<button onclick={cancelDelete} class="btn btn-secondary">Cancelar</button>
+				<button
+					onclick={async () => {
+						await deleteOrder(orderToDelete);
+						orderToDelete = null;
+					}}
+					class="btn btn-danger"
+				>
+					Eliminar
+				</button>
+			</div>
+		</div>
+	</div>
+{/if}
 
 <style>
 	@import '@styles/forms';
@@ -214,6 +278,75 @@
 		font-style: italic;
 	}
 
+	.order-actions {
+		display: flex;
+		justify-content: flex-end;
+		margin-top: 0.5rem;
+	}
+
+	.delete-btn {
+		background: none;
+		border: none;
+		cursor: pointer;
+		color: var(--red);
+		padding: 0.25rem;
+		font-size: 1rem;
+	}
+
+	.delete-btn:hover {
+		color: var(--maroon);
+	}
+
+	.modal-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.5);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 1000;
+	}
+
+	.modal {
+		background: var(--base);
+		padding: 1.5rem;
+		border-radius: 8px;
+		max-width: 400px;
+		width: 90%;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	}
+
+	.modal h3 {
+		margin-top: 0;
+		color: var(--text);
+	}
+
+	.modal p {
+		margin-bottom: 1.5rem;
+		color: var(--subtext1);
+	}
+
+	.modal-actions {
+		display: flex;
+		justify-content: flex-end;
+		gap: 0.75rem;
+	}
+
+	.btn-danger {
+		background-color: var(--red);
+		color: var(--crust);
+	}
+
+	.btn-danger:hover {
+		background-color: var(--maroon);
+	}
+
+	.form-actions {
+		justify-content: center;
+	}
 	@media (max-width: 768px) {
 		.orders-column {
 			border-right: none;

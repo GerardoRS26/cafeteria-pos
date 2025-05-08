@@ -570,3 +570,448 @@ Gdk-Message: 15:51:44.972: Unable to load arrow from the cursor theme
 Gdk-Message: 16:09:37.946: Unable to load arrow from the cursor theme
 Gdk-Message: 16:09:37.994: Unable to load arrow from the cursor theme
 Gdk-Message: 16:09:38.016: Unable to load arrow from the cursor theme
+[2025-05-07 14:30:49.172] [info] Using configuration file /home/gerardo/.config/waybar/config.jsonc
+[2025-05-07 14:30:49.174] [info] Discovered appearance 'dark'
+[2025-05-07 14:30:49.174] [info] Using CSS file /home/gerardo/.config/waybar/style.css
+[2025-05-07 14:30:49.182] [info] Hyprland IPC starting
+[2025-05-07 14:30:49.182] [info] Loading persistent workspaces from Waybar config
+[2025-05-07 14:30:49.182] [info] Loading persistent workspaces from Hyprland workspace rules
+[2025-05-07 14:30:49.187] [info] Loading persistent workspaces from Waybar config
+[2025-05-07 14:30:49.187] [info] Loading persistent workspaces from Hyprland workspace rules
+[2025-05-07 14:30:49.187] [warning] module backlight: Disabling module "backlight", No backlight found
+[2025-05-07 14:30:49.193] [warning] No batteries.
+[2025-05-07 14:30:49.305] [warning] module backlight: Disabling module "backlight", No backlight found
+[2025-05-07 14:30:49.312] [warning] No batteries.
+
+** (waybar:504063): WARNING **: 14:30:49.529: Status Notifier Item with bus name ':1.40' and object path '/org/ayatana/NotificationItem/udiskie' is already registered
+
+(waybar:504063): Gtk-CRITICAL **: 14:30:49.571: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504063): Gtk-CRITICAL **: 14:30:49.571: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504063): Gtk-CRITICAL **: 14:30:49.572: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504063): Gtk-CRITICAL **: 14:30:49.572: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+[2025-05-07 14:30:49.579] [warning] Requested height: 31 is less than the minimum height: 32 required by the modules
+[2025-05-07 14:30:49.579] [info] Bar configured (width: 1920, height: 32) for output: HDMI-A-1
+[2025-05-07 14:30:49.579] [warning] Requested height: 31 is less than the minimum height: 32 required by the modules
+[2025-05-07 14:30:49.579] [info] Bar configured (width: 1920, height: 32) for output: DP-3
+[2025-05-07 14:30:49.584] [info] Bar configured (width: 1920, height: 32) for output: HDMI-A-1
+
+** (waybar:504063): WARNING **: 14:30:50.506: Status Notifier Item with bus name ':1.40' and object path '/org/ayatana/NotificationItem/udiskie' is already registered
+[2025-05-07 14:30:51.121] [info] Quitting.
+[2025-05-07 14:30:51.145] [info] Hyprland IPC stopping...
+wc: write error
+wc: write error
+[2025-05-07 14:30:56.622] [info] Using configuration file /home/gerardo/.config/waybar/config.jsonc
+[2025-05-07 14:30:56.624] [info] Discovered appearance 'dark'
+[2025-05-07 14:30:56.624] [info] Using CSS file /home/gerardo/.config/waybar/style.css
+[2025-05-07 14:30:56.632] [info] Hyprland IPC starting
+[2025-05-07 14:30:56.633] [info] Loading persistent workspaces from Waybar config
+[2025-05-07 14:30:56.633] [info] Loading persistent workspaces from Hyprland workspace rules
+[2025-05-07 14:30:56.636] [info] Loading persistent workspaces from Waybar config
+[2025-05-07 14:30:56.636] [info] Loading persistent workspaces from Hyprland workspace rules
+[2025-05-07 14:30:56.636] [warning] module backlight: Disabling module "backlight", No backlight found
+[2025-05-07 14:30:56.642] [warning] No batteries.
+[2025-05-07 14:30:56.755] [warning] module backlight: Disabling module "backlight", No backlight found
+[2025-05-07 14:30:56.761] [warning] No batteries.
+
+** (waybar:504923): WARNING **: 14:30:56.980: Status Notifier Item with bus name ':1.40' and object path '/org/ayatana/NotificationItem/udiskie' is already registered
+
+(waybar:504923): Gtk-CRITICAL **: 14:30:57.021: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:30:57.021: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:30:57.021: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:30:57.021: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+[2025-05-07 14:30:57.028] [warning] Requested height: 31 is less than the minimum height: 32 required by the modules
+[2025-05-07 14:30:57.028] [info] Bar configured (width: 1920, height: 32) for output: HDMI-A-1
+[2025-05-07 14:30:57.028] [warning] Requested height: 31 is less than the minimum height: 32 required by the modules
+[2025-05-07 14:30:57.028] [info] Bar configured (width: 1920, height: 32) for output: DP-3
+[2025-05-07 14:30:57.033] [info] Bar configured (width: 1920, height: 32) for output: HDMI-A-1
+Gdk-Message: 14:30:58.384: Unable to load arrow from the cursor theme
+
+** (waybar:504923): WARNING **: 14:30:58.506: Status Notifier Item with bus name ':1.40' and object path '/org/ayatana/NotificationItem/udiskie' is already registered
+
+(waybar:504923): Gtk-CRITICAL **: 14:31:28.426: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:31:28.426: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:31:28.426: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:31:28.426: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:31:28.985: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:31:28.985: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:31:28.985: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:31:28.985: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+[2025-05-07 14:32:22.293] [info] Loading persistent workspaces from Waybar config
+[2025-05-07 14:32:22.293] [info] Loading persistent workspaces from Hyprland workspace rules
+[2025-05-07 14:32:22.294] [warning] module backlight: Disabling module "backlight", No backlight found
+[2025-05-07 14:32:22.302] [warning] No batteries.
+
+(waybar:504923): Gtk-CRITICAL **: 14:32:22.468: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:32:22.468: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+[2025-05-07 14:32:22.487] [info] Hyprland IPC stopping...
+
+** (waybar:507797): CRITICAL **: 14:32:22.488: static void Glib::DispatchNotifier::unreference_instance(Glib::DispatchNotifier*, const Glib::Dispatcher*): assertion 'instance == notifier' failed
+[2025-05-07 14:32:22.489] [info] Bar removed from output: grimblastVD
+
+(waybar:504923): Gtk-CRITICAL **: 14:32:22.717: gtk_widget_set_visible: assertion 'GTK_IS_WIDGET (widget)' failed
+wc: write error
+Gdk-Message: 14:32:56.675: Unable to load arrow from the cursor theme
+Gdk-Message: 14:32:56.677: Unable to load arrow from the cursor theme
+Gdk-Message: 14:32:56.833: Unable to load arrow from the cursor theme
+Gdk-Message: 14:32:56.841: Unable to load arrow from the cursor theme
+Gdk-Message: 14:32:56.845: Unable to load arrow from the cursor theme
+Gdk-Message: 14:32:56.853: Unable to load arrow from the cursor theme
+Gdk-Message: 14:32:56.863: Unable to load arrow from the cursor theme
+Gdk-Message: 14:32:56.873: Unable to load arrow from the cursor theme
+Gdk-Message: 14:32:56.921: Unable to load arrow from the cursor theme
+Gdk-Message: 14:32:56.933: Unable to load arrow from the cursor theme
+Gdk-Message: 14:34:44.022: Unable to load arrow from the cursor theme
+Gdk-Message: 14:34:44.030: Unable to load arrow from the cursor theme
+Gdk-Message: 14:34:44.034: Unable to load arrow from the cursor theme
+Gdk-Message: 14:34:44.044: Unable to load arrow from the cursor theme
+Gdk-Message: 14:34:44.052: Unable to load arrow from the cursor theme
+Gdk-Message: 14:34:44.068: Unable to load arrow from the cursor theme
+Gdk-Message: 14:34:57.636: Unable to load arrow from the cursor theme
+Gdk-Message: 14:34:57.664: Unable to load arrow from the cursor theme
+Gdk-Message: 14:35:03.242: Unable to load arrow from the cursor theme
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:10.916: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:10.916: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:10.916: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:10.916: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:10.917: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:10.917: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:11.482: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:11.482: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:11.482: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:11.482: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:11.483: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:11.483: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:12.572: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:12.572: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:12.572: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:12.572: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:12.573: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:12.573: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:13.130: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:13.130: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:13.131: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:13.131: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:13.131: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:13.131: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:43.903: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:43.903: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:43.903: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:43.903: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:43.904: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:43.904: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:44.461: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:44.461: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:44.462: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:44.462: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:44.462: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:44.462: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:46.422: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:46.422: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:46.423: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:46.423: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:46.423: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:46.423: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:46.986: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:46.986: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:46.986: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:46.986: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:46.987: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 14:35:46.987: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+Gdk-Message: 14:42:44.864: Unable to load arrow from the cursor theme
+Gdk-Message: 14:42:44.884: Unable to load arrow from the cursor theme
+Gdk-Message: 14:42:44.934: Unable to load arrow from the cursor theme
+Gdk-Message: 14:42:44.960: Unable to load arrow from the cursor theme
+Gdk-Message: 14:51:03.498: Unable to load arrow from the cursor theme
+Gdk-Message: 14:51:03.504: Unable to load arrow from the cursor theme
+Gdk-Message: 14:51:03.506: Unable to load arrow from the cursor theme
+Gdk-Message: 14:51:03.512: Unable to load arrow from the cursor theme
+Gdk-Message: 14:51:03.516: Unable to load arrow from the cursor theme
+Gdk-Message: 14:51:03.518: Unable to load arrow from the cursor theme
+Gdk-Message: 14:51:03.548: Unable to load arrow from the cursor theme
+Gdk-Message: 14:51:03.550: Unable to load arrow from the cursor theme
+Gdk-Message: 14:51:03.554: Unable to load arrow from the cursor theme
+Gdk-Message: 14:51:03.556: Unable to load arrow from the cursor theme
+Gdk-Message: 14:51:03.560: Unable to load arrow from the cursor theme
+Gdk-Message: 14:51:03.896: Unable to load arrow from the cursor theme
+Gdk-Message: 14:51:03.904: Unable to load arrow from the cursor theme
+Gdk-Message: 14:51:03.910: Unable to load arrow from the cursor theme
+Gdk-Message: 14:51:03.918: Unable to load arrow from the cursor theme
+Gdk-Message: 14:51:03.924: Unable to load arrow from the cursor theme
+Gdk-Message: 15:02:33.534: Unable to load arrow from the cursor theme
+Gdk-Message: 15:02:33.536: Unable to load arrow from the cursor theme
+Gdk-Message: 15:02:33.538: Unable to load arrow from the cursor theme
+Gdk-Message: 15:02:33.540: Unable to load arrow from the cursor theme
+Gdk-Message: 15:02:33.674: Unable to load arrow from the cursor theme
+Gdk-Message: 15:02:33.692: Unable to load arrow from the cursor theme
+Gdk-Message: 15:02:33.766: Unable to load arrow from the cursor theme
+Gdk-Message: 15:02:33.781: Unable to load arrow from the cursor theme
+Gdk-Message: 15:02:33.790: Unable to load arrow from the cursor theme
+Gdk-Message: 15:02:33.861: Unable to load arrow from the cursor theme
+[2025-05-07 15:16:34.380] [info] Loading persistent workspaces from Waybar config
+[2025-05-07 15:16:34.380] [info] Loading persistent workspaces from Hyprland workspace rules
+[2025-05-07 15:16:34.381] [warning] module backlight: Disabling module "backlight", No backlight found
+[2025-05-07 15:16:34.392] [warning] No batteries.
+
+(waybar:504923): Gtk-CRITICAL **: 15:16:34.567: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:504923): Gtk-CRITICAL **: 15:16:34.567: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+[2025-05-07 15:16:34.589] [info] Hyprland IPC stopping...
+
+** (waybar:589185): CRITICAL **: 15:16:34.590: static void Glib::DispatchNotifier::unreference_instance(Glib::DispatchNotifier*, const Glib::Dispatcher*): assertion 'instance == notifier' failed
+[2025-05-07 15:16:34.591] [info] Bar removed from output: grimblastVD
+wc: write error
+[2025-05-07 17:24:42.267] [info] Using configuration file /home/gerardo/.config/waybar/config.jsonc
+[2025-05-07 17:24:42.268] [info] Discovered appearance 'dark'
+[2025-05-07 17:24:42.268] [info] Using CSS file /home/gerardo/.config/waybar/style.css
+[2025-05-07 17:24:42.275] [info] Hyprland IPC starting
+[2025-05-07 17:24:42.276] [info] Loading persistent workspaces from Waybar config
+[2025-05-07 17:24:42.276] [info] Loading persistent workspaces from Hyprland workspace rules
+[2025-05-07 17:24:42.279] [info] Loading persistent workspaces from Waybar config
+[2025-05-07 17:24:42.279] [info] Loading persistent workspaces from Hyprland workspace rules
+[2025-05-07 17:24:42.280] [warning] module backlight: Disabling module "backlight", No backlight found
+[2025-05-07 17:24:42.286] [warning] No batteries.
+[2025-05-07 17:24:42.401] [warning] module backlight: Disabling module "backlight", No backlight found
+[2025-05-07 17:24:42.409] [warning] No batteries.
+
+** (waybar:698554): WARNING **: 17:24:42.626: Status Notifier Item with bus name ':1.40' and object path '/org/ayatana/NotificationItem/udiskie' is already registered
+
+(waybar:698554): Gtk-CRITICAL **: 17:24:42.668: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:698554): Gtk-CRITICAL **: 17:24:42.668: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:698554): Gtk-CRITICAL **: 17:24:42.668: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:698554): Gtk-CRITICAL **: 17:24:42.668: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+[2025-05-07 17:24:42.675] [warning] Requested height: 31 is less than the minimum height: 32 required by the modules
+[2025-05-07 17:24:42.675] [info] Bar configured (width: 1920, height: 32) for output: HDMI-A-1
+[2025-05-07 17:24:42.675] [warning] Requested height: 31 is less than the minimum height: 32 required by the modules
+[2025-05-07 17:24:42.675] [info] Bar configured (width: 1920, height: 32) for output: DP-3
+[2025-05-07 17:24:42.678] [info] Bar configured (width: 1920, height: 32) for output: HDMI-A-1
+
+** (waybar:698554): WARNING **: 17:24:43.505: Status Notifier Item with bus name ':1.40' and object path '/org/ayatana/NotificationItem/udiskie' is already registered
+Gdk-Message: 17:24:43.806: Unable to load arrow from the cursor theme
+Gdk-Message: 17:24:44.062: Unable to load arrow from the cursor theme
+Gdk-Message: 17:24:44.076: Unable to load arrow from the cursor theme
+Gdk-Message: 17:24:44.146: Unable to load arrow from the cursor theme
+Gdk-Message: 17:56:28.977: Unable to load arrow from the cursor theme
+Gdk-Message: 17:56:28.978: Unable to load arrow from the cursor theme
+Gdk-Message: 17:56:28.979: Unable to load arrow from the cursor theme
+Gdk-Message: 17:56:28.987: Unable to load arrow from the cursor theme
+Gdk-Message: 17:56:28.993: Unable to load arrow from the cursor theme
+Gdk-Message: 18:09:24.063: Unable to load arrow from the cursor theme
+Gdk-Message: 18:09:24.067: Unable to load arrow from the cursor theme
+Gdk-Message: 18:09:24.073: Unable to load arrow from the cursor theme
+Gdk-Message: 18:09:24.137: Unable to load arrow from the cursor theme
+Gdk-Message: 18:09:24.165: Unable to load arrow from the cursor theme
+Gdk-Message: 18:09:24.187: Unable to load arrow from the cursor theme
+Gdk-Message: 18:09:24.209: Unable to load arrow from the cursor theme
+Gdk-Message: 18:09:24.259: Unable to load arrow from the cursor theme
+Gdk-Message: 18:09:28.617: Unable to load arrow from the cursor theme
+Gdk-Message: 18:09:28.625: Unable to load arrow from the cursor theme
+Gdk-Message: 18:09:28.639: Unable to load arrow from the cursor theme
+Gdk-Message: 18:09:28.641: Unable to load arrow from the cursor theme
+Gdk-Message: 18:09:28.649: Unable to load arrow from the cursor theme
+Gdk-Message: 18:09:28.655: Unable to load arrow from the cursor theme
+Gdk-Message: 18:09:28.813: Unable to load arrow from the cursor theme
+Gdk-Message: 18:09:28.869: Unable to load arrow from the cursor theme
+Gdk-Message: 18:17:11.193: Unable to load arrow from the cursor theme
+Gdk-Message: 18:17:14.645: Unable to load arrow from the cursor theme
+Gdk-Message: 18:17:14.859: Unable to load arrow from the cursor theme
+Gdk-Message: 18:17:14.977: Unable to load arrow from the cursor theme
+Gdk-Message: 18:17:14.997: Unable to load arrow from the cursor theme
+Gdk-Message: 18:17:32.121: Unable to load arrow from the cursor theme
+Gdk-Message: 18:17:32.123: Unable to load arrow from the cursor theme
+Gdk-Message: 18:17:32.149: Unable to load arrow from the cursor theme
+Gdk-Message: 18:17:32.257: Unable to load arrow from the cursor theme
+Gdk-Message: 18:18:24.781: Unable to load arrow from the cursor theme
+Gdk-Message: 18:18:24.803: Unable to load arrow from the cursor theme
+Gdk-Message: 18:19:49.393: Unable to load arrow from the cursor theme
+Gdk-Message: 18:19:49.415: Unable to load arrow from the cursor theme
+Gdk-Message: 18:19:49.429: Unable to load arrow from the cursor theme
+Gdk-Message: 18:26:14.308: Unable to load arrow from the cursor theme
+Gdk-Message: 18:26:14.505: Unable to load arrow from the cursor theme
+Gdk-Message: 18:34:59.329: Unable to load arrow from the cursor theme
+Gdk-Message: 18:34:59.369: Unable to load arrow from the cursor theme
+Gdk-Message: 18:34:59.549: Unable to load arrow from the cursor theme
+Gdk-Message: 18:34:59.577: Unable to load arrow from the cursor theme
+Gdk-Message: 18:35:47.899: Unable to load arrow from the cursor theme
+Gdk-Message: 18:35:48.175: Unable to load arrow from the cursor theme
+Gdk-Message: 18:43:49.238: Unable to load arrow from the cursor theme
+Gdk-Message: 18:43:49.474: Unable to load arrow from the cursor theme
+Gdk-Message: 18:43:49.486: Unable to load arrow from the cursor theme
+Gdk-Message: 18:49:22.257: Unable to load arrow from the cursor theme
+Gdk-Message: 18:50:48.233: Unable to load arrow from the cursor theme
+Gdk-Message: 18:50:48.239: Unable to load arrow from the cursor theme
+Gdk-Message: 18:50:48.377: Unable to load arrow from the cursor theme
+Gdk-Message: 18:50:48.407: Unable to load arrow from the cursor theme
+Gdk-Message: 18:52:33.970: Unable to load arrow from the cursor theme
+Gdk-Message: 18:52:33.972: Unable to load arrow from the cursor theme
+Gdk-Message: 18:53:09.498: Unable to load arrow from the cursor theme
+Gdk-Message: 18:53:09.801: Unable to load arrow from the cursor theme
+Gdk-Message: 19:02:13.538: Unable to load arrow from the cursor theme
+Gdk-Message: 19:06:35.529: Unable to load arrow from the cursor theme
+Gdk-Message: 19:06:35.755: Unable to load arrow from the cursor theme
+Gdk-Message: 19:14:42.966: Unable to load arrow from the cursor theme
+Gdk-Message: 19:14:42.986: Unable to load arrow from the cursor theme
+Gdk-Message: 19:14:43.002: Unable to load arrow from the cursor theme
+Gdk-Message: 19:14:43.142: Unable to load arrow from the cursor theme
+Gdk-Message: 19:14:43.188: Unable to load arrow from the cursor theme
+Gdk-Message: 19:15:15.698: Unable to load arrow from the cursor theme
+Gdk-Message: 19:19:47.993: Unable to load arrow from the cursor theme
+Gdk-Message: 19:19:48.036: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:05.658: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:05.664: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:05.668: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:05.672: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:05.674: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:05.698: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:05.704: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:05.708: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:05.710: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:05.796: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:05.800: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:05.836: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:06.018: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:06.032: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:12.102: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:12.106: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:12.128: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:12.130: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:12.132: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:12.134: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:12.146: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:12.154: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:12.168: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:12.184: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:12.216: Unable to load arrow from the cursor theme
+Gdk-Message: 19:20:12.388: Unable to load arrow from the cursor theme
+Gdk-Message: 19:21:58.426: Unable to load arrow from the cursor theme
+Gdk-Message: 19:21:58.427: Unable to load arrow from the cursor theme
+Gdk-Message: 19:21:58.433: Unable to load arrow from the cursor theme
+Gdk-Message: 19:21:58.439: Unable to load arrow from the cursor theme
+Gdk-Message: 19:23:17.179: Unable to load arrow from the cursor theme
+Gdk-Message: 19:23:17.343: Unable to load arrow from the cursor theme
+Gdk-Message: 19:34:52.056: Unable to load arrow from the cursor theme
+Gdk-Message: 19:34:52.071: Unable to load arrow from the cursor theme
+Gdk-Message: 19:43:08.503: Unable to load arrow from the cursor theme
+Gdk-Message: 19:43:08.507: Unable to load arrow from the cursor theme
+Gdk-Message: 19:43:08.513: Unable to load arrow from the cursor theme
+Gdk-Message: 19:43:08.517: Unable to load arrow from the cursor theme
+Gdk-Message: 19:43:08.521: Unable to load arrow from the cursor theme
+Gdk-Message: 19:43:08.567: Unable to load arrow from the cursor theme
+Gdk-Message: 19:43:08.573: Unable to load arrow from the cursor theme
+Gdk-Message: 19:43:08.579: Unable to load arrow from the cursor theme
+Gdk-Message: 19:43:08.585: Unable to load arrow from the cursor theme
+Gdk-Message: 19:43:08.589: Unable to load arrow from the cursor theme
+Gdk-Message: 19:43:28.345: Unable to load arrow from the cursor theme
+Gdk-Message: 19:43:28.351: Unable to load arrow from the cursor theme
+Gdk-Message: 19:43:28.355: Unable to load arrow from the cursor theme
+Gdk-Message: 19:43:28.363: Unable to load arrow from the cursor theme
+Gdk-Message: 19:43:28.383: Unable to load arrow from the cursor theme
+Gdk-Message: 19:43:28.383: Unable to load arrow from the cursor theme
+Gdk-Message: 19:48:29.310: Unable to load arrow from the cursor theme
+Gdk-Message: 19:48:29.326: Unable to load arrow from the cursor theme
+Gdk-Message: 19:48:29.334: Unable to load arrow from the cursor theme
+Gdk-Message: 19:48:29.340: Unable to load arrow from the cursor theme
+Gdk-Message: 19:48:29.362: Unable to load arrow from the cursor theme
+Gdk-Message: 19:48:34.226: Unable to load arrow from the cursor theme
+Gdk-Message: 19:48:34.232: Unable to load arrow from the cursor theme
+Gdk-Message: 19:48:34.234: Unable to load arrow from the cursor theme
+Gdk-Message: 19:48:34.238: Unable to load arrow from the cursor theme
+Gdk-Message: 19:48:34.240: Unable to load arrow from the cursor theme
+Gdk-Message: 19:48:34.242: Unable to load arrow from the cursor theme
+Gdk-Message: 19:48:34.260: Unable to load arrow from the cursor theme
+Gdk-Message: 19:48:34.262: Unable to load arrow from the cursor theme
+Gdk-Message: 19:48:34.264: Unable to load arrow from the cursor theme
+Gdk-Message: 19:48:34.268: Unable to load arrow from the cursor theme
+Gdk-Message: 19:48:34.278: Unable to load arrow from the cursor theme
+Gdk-Message: 19:48:34.284: Unable to load arrow from the cursor theme
+Gdk-Message: 19:48:34.294: Unable to load arrow from the cursor theme
+Gdk-Message: 19:48:34.308: Unable to load arrow from the cursor theme
+Gdk-Message: 19:48:34.326: Unable to load arrow from the cursor theme
+Gdk-Message: 19:48:34.334: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:25.955: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:25.961: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:25.965: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:25.969: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:25.973: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:25.975: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:25.991: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:25.993: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:25.997: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:26.005: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:26.009: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:26.017: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:26.023: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:26.027: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:26.047: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:26.107: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:26.311: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:26.320: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:26.321: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:26.329: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:26.333: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:26.337: Unable to load arrow from the cursor theme
+Gdk-Message: 19:52:26.378: Unable to load arrow from the cursor theme
