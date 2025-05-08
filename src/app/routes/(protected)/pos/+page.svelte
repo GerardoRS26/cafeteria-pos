@@ -119,7 +119,7 @@
 	.pos-grid {
 		display: grid;
 		grid-template-columns: 25% 35% 40%;
-		height: calc(100vh - 70px);
+		height: calc(100vh - 185px);
 		overflow: hidden;
 	}
 

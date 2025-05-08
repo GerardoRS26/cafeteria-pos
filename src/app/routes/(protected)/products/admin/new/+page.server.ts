@@ -2,7 +2,7 @@ import { ProductService } from '@application/product/product-service';
 import { DrizzleProductRepository } from '@domain/product/repositories/product-repository';
 import { ProductId } from '@domain/product/value-objects/product-id';
 import { Money } from '@shared/value-objects/money';
-import { fail, redirect } from '@sveltejs/kit';
+import { fail, redirect, type ActionResult } from '@sveltejs/kit';
 import type { Actions } from './$types';
 
 export const actions: Actions = {
@@ -34,8 +34,7 @@ export const actions: Actions = {
 				cost: new Money(cost)
 			});
 
-			// 3. Redirigir a lista de productos
-			throw redirect(303, '/products');
+			return { result: { type: 'success' } as ActionResult };
 		} catch (error) {
 			// 4. Manejar errores
 			return fail(400, {

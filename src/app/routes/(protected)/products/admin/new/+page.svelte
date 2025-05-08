@@ -1,8 +1,11 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import { page } from '$app/state';
+	import Alert from '$lib/components/Alert.svelte';
 	import type { ActionResult } from '@sveltejs/kit';
 
-	let formError: string | null = null;
+	let formError = $state<string | null>(null);
+	let formSuccess = $state<string | null>(page.url.searchParams.get('success') || null);
 	let formData = {
 		name: '',
 		description: '',
@@ -10,20 +13,44 @@
 		cost: '0.00'
 	};
 
-	async function handleSubmit({ result }: { result: ActionResult }) {
-		if (result?.type === 'failure') {
-			formError = result.data?.error || 'Error al crear el producto';
-		}
+	$effect(() => {
+		if (!formSuccess && !formError) return;
+
+		const timer = setTimeout(() => {
+			formSuccess = null;
+			formError = null;
+		}, 5000);
+
+		return () => clearTimeout(timer);
+	});
+	// async function handleSubmit({ result }: { result: ActionResult }) {
+	// 	if (result?.type === 'failure') {
+	// 		formError = result.data?.error || 'Error al crear el producto';
+	// 	}
+	// }
+
+	async function handleSubmit({ formElement, formData, action, cancel }: ActionResult) {
+		return async ({ result }: { result: ActionResult }) => {
+			if (result?.type === 'success') {
+				formSuccess = 'Producto actualizado correctamente';
+				formError = null;
+			} else if (result?.type === 'failure') {
+				formError = result.data?.error || 'Error al actualizar el producto';
+				formData = result.data?.fields || formData;
+			}
+		};
 	}
 </script>
 
 <div class="form-container">
 	<h1 class="form-title">Nuevo Producto</h1>
 
+	{#if formSuccess}
+		<Alert type="success" message={formSuccess} dismiss={() => (formSuccess = null)} />
+	{/if}
+
 	{#if formError}
-		<div class="error-message">
-			{formError}
-		</div>
+		<Alert type="error" message={formError} dismiss={() => (formError = null)} />
 	{/if}
 
 	<form method="POST" use:enhance={handleSubmit}>

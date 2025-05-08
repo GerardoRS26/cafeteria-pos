@@ -1,7 +1,7 @@
 <!-- src/routes/admin/products/[id]/+page.svelte -->
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import Alert from '$lib/components/Alert.svelte';
 	import type { ActionResult } from '@sveltejs/kit';
 
@@ -20,7 +20,7 @@
 
 	// Estados reactivos
 	let formError = $state<string | null>(null);
-	let formSuccess = $state<string | null>($page.url.searchParams.get('success') || null);
+	let formSuccess = $state<string | null>(page.url.searchParams.get('success') || null);
 	let formData = $state({
 		name: data.product.name,
 		description: data.product.description || '',
