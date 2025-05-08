@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
 	import type { Order, POSData } from './types';
 
 	const { data, orders, activeOrder, createOrder, setActiveOrder, deleteOrder } = $props<{

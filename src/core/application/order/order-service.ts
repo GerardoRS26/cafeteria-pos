@@ -5,6 +5,10 @@ import { OrderId } from '@domain/order/value-objects/order-id';
 import { ProductId } from '@domain/product/value-objects/product-id';
 import { Money } from '@shared/value-objects/money';
 import { time } from 'console';
+import { Discount } from '@domain/order/value-objects/discount';
+import { OrderItem } from '@domain/order/value-objects/order-item';
+import { or } from 'drizzle-orm';
+import { Extra } from '@domain/order/value-objects/extra';
 
 /**
  * Handles all order use cases.
@@ -29,7 +33,12 @@ export class OrderService {
 		const order = new Order({
 			id: orderId,
 			tableIdentifier: params.tableIdentifier,
-			items: params.items || [],
+			items: params.items
+				? params.items.map(
+						(item) =>
+							new OrderItem(new ProductId(item.productId), item.quantity, new Money(item.unitPrice))
+					)
+				: [],
 			status: 'open',
 			extras: []
 		});
@@ -44,6 +53,153 @@ export class OrderService {
 		console.log('before delete', { time: new Date() });
 		await this.orderRepository.delete(new OrderId(orderId));
 		console.log('after save', { time: new Date() });
+	}
+
+	async update(params: {
+		orderId: OrderId;
+		tableIdentifier?: string;
+		items?: Array<{
+			productId: string;
+			quantity: number;
+			unitPrice: number;
+		}>;
+		status?: 'open' | 'paid';
+		discount?: {
+			amount: number;
+			reason: string;
+		} | null;
+		extras?: Array<{
+			amount: number;
+			description: string;
+		}>;
+	}): Promise<Order> {
+		const order = await this.orderRepository.findById(params.orderId);
+		if (!order) {
+			throw new Error('Order not found');
+		}
+
+		console.log('before update', { order });
+
+		// Clonar el estado actual para validación
+		const updatedOrder = new Order({
+			id: order.id,
+			tableIdentifier: params.tableIdentifier ?? order.tableIdentifier,
+			items: params.items ?? order.getItems(),
+			status: params.status ?? order.status,
+			discount:
+				params.discount !== undefined
+					? params.discount
+						? new Discount(new Money(params.discount.amount), params.discount.reason)
+						: undefined
+					: order.discount,
+			extras: params.extras
+				? params.extras.map((extra) => new Extra(new Money(extra.amount), extra.description))
+				: order.getExtras()
+		});
+
+		console.log('after create updatedOrder', { updatedOrder });
+
+		if (order.equals(updatedOrder)) {
+			console.log('Order is the same, no changes made');
+			return order;
+		}
+
+		// Validar el estado completo del agregado
+		this.validateOrder(updatedOrder);
+
+		console.log('Service before setting items:', { items: params.items });
+		if (params.items !== undefined) {
+			order.getItems().forEach((item) => {
+				order.removeItem(item.productId.id);
+			});
+			console.log('Service clean items:', { items: order.getItems() });
+			params.items.forEach((item) => order.addItem(item.product.id, item.quantity, item.unitPrice));
+			console.log('Service add items:', { items: order.getItems() });
+		}
+
+		if (order.status.isOpen() && params.status === 'paid') order.markAsPaid();
+
+		if (params.discount !== undefined) {
+			if (params.discount) {
+				order.applyDiscount(params.discount.amount, params.discount.reason);
+			} else {
+				order.removeDiscount();
+			}
+		}
+
+		if (params.extras !== undefined) {
+			order.getExtras().forEach((extra, index) => {
+				order.removeExtra(index);
+			});
+
+			params.extras.forEach((extra) => order.addExtra(extra.amount, extra.description));
+		}
+
+		await this.orderRepository.save(order);
+		return order;
+	}
+
+	private validateOrder(order: Order): void {
+		// 1. Validaciones básicas de la orden
+		if (!order.tableIdentifier.trim()) {
+			throw new Error('Table identifier is required');
+		}
+
+		// 2. Validaciones de estado
+		if (order.status.isPaid() && order.getItems().length === 0) {
+			throw new Error('Cannot pay an empty order');
+		}
+
+		// 3. Validaciones de items
+		for (const item of order.getItems()) {
+			if (item.quantity <= 0) {
+				throw new Error(`Item ${item.productId} must have quantity greater than 0`);
+			}
+
+			if (item.unitPrice.value <= 0) {
+				throw new Error(`Item ${item.productId} must have a positive unit price`);
+			}
+		}
+
+		// 4. Validaciones de descuento
+		if (order.discount) {
+			if (order.discount.amount.value <= 0) {
+				throw new Error('Discount amount must be positive');
+			}
+
+			const subtotal = order.calculateSubtotal().value;
+			if (order.discount.amount.value > subtotal) {
+				throw new Error(
+					`Discount (${order.discount.amount.value}) cannot be greater than subtotal (${subtotal})`
+				);
+			}
+
+			// Validar que el descuento no sea mayor que el total con extras
+			const totalBeforeDiscount = order.calculateTotalBeforeDiscounts().value;
+			if (order.discount.amount.value > totalBeforeDiscount) {
+				throw new Error(
+					`Discount (${order.discount.amount.value}) cannot be greater than order total before discount (${totalBeforeDiscount})`
+				);
+			}
+		}
+
+		// 5. Validaciones de extras
+		for (const extra of order.getExtras()) {
+			if (extra.amount.value <= 0) {
+				throw new Error('Extra amount must be positive');
+			}
+		}
+
+		// 7. Validación de total no negativo
+		const total = order.calculateTotal().value;
+		if (total < 0) {
+			throw new Error('Order total cannot be negative');
+		}
+
+		// 8. Validación de fechas (si aplica)
+		if (order.updatedAt && order.updatedAt < order.createdAt) {
+			throw new Error('Closed date cannot be before creation date');
+		}
 	}
 
 	// ---- Order Items Management ----

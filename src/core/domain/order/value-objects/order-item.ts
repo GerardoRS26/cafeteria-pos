@@ -22,4 +22,13 @@ export class OrderItem {
 	public updateQuantity(newQuantity: number): OrderItem {
 		return new OrderItem(this.productId, newQuantity, this.unitPrice);
 	}
+
+	equals(other: OrderItem): boolean {
+		return (
+			other instanceof OrderItem &&
+			this.productId.equals(other.productId) &&
+			this.quantity === other.quantity &&
+			this.unitPrice.equals(other.unitPrice)
+		);
+	}
 }

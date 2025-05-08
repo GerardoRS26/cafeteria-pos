@@ -11,4 +11,10 @@ export class Discount {
 		this.amount = amount;
 		this.reason = reason;
 	}
+
+	equals(other: Discount): boolean {
+		return (
+			other instanceof Discount && this.amount.equals(other.amount) && this.reason === other.reason
+		);
+	}
 }

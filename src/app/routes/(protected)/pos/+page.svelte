@@ -50,7 +50,7 @@
 		activeOrder = order;
 	}
 
-	function addProduct(product: Product) {
+	async function addProduct(product: Product) {
 		if (!activeOrder) return;
 
 		const existingItem = activeOrder.items.find((item) => item.product.id === product.id);
@@ -64,16 +64,46 @@
 				unitPrice: product.price
 			});
 		}
+
+		// await updateActiveOrder();
 	}
 
-	function updateItemQuantity(index: number, delta: number) {
+	async function updateItemQuantity(index: number, delta: number) {
 		if (!activeOrder) return;
 		activeOrder.items[index].quantity += delta;
+		// await updateActiveOrder();
 	}
 
-	function removeItem(index: number) {
+	async function removeItem(index: number) {
 		if (!activeOrder) return;
 		activeOrder.items.splice(index, 1);
+		// await updateActiveOrder();
+	}
+
+	$effect(() => {
+		// if (!activeOrder) return;
+		$inspect('Active order updated:', activeOrder);
+		updateActiveOrder()
+			.then(() => {
+				console.log('Active order updated successfully');
+			})
+			.catch((error) => {
+				console.log('Error updating active order:', error);
+			});
+	});
+
+	async function updateActiveOrder() {
+		if (!activeOrder) return;
+		const response = await fetch(`/api/orders/${activeOrder.id}`, {
+			method: 'PATCH',
+			headers: {
+				'content-type': 'application/json'
+			},
+			body: JSON.stringify(activeOrder)
+		});
+		if (!response.ok) {
+			throw new Error(`Response status: ${response.status}`);
+		}
 	}
 
 	async function deleteOrder(orderId: string) {

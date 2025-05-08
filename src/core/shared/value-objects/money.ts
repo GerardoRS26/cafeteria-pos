@@ -25,4 +25,8 @@ export class Money {
 	get value(): number {
 		return this.amount;
 	}
+
+	equals(other: Extra): boolean {
+		return other instanceof Money && this.value === other.value;
+	}
 }

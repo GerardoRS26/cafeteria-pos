@@ -11,4 +11,12 @@ export class Extra {
 		this.amount = amount;
 		this.description = description;
 	}
+
+	equals(other: Extra): boolean {
+		return (
+			other instanceof Extra &&
+			this.amount.equals(other.amount) &&
+			this.description === other.description
+		);
+	}
 }

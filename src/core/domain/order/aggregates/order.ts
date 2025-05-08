@@ -26,19 +26,25 @@ export class Order {
 		createdAt?: Date;
 		updatedAt?: Date;
 	}) {
-		this.id = params.id instanceof OrderId ? params.id : new OrderId(params.id);
+		console.log('Order constructor');
+		this.id = params.id instanceof OrderId ? new OrderId(params.id.value) : new OrderId(params.id);
+
 		this.tableIdentifier = params.tableIdentifier;
 		this.status =
 			params.status instanceof OrderStatus
 				? params.status
 				: new OrderStatus((params.status ?? 'open') as OrderStates);
-
+		console.log('Order constructor before items', params.items);
 		this.items = params.items.map((item) =>
-			item instanceof OrderItem
-				? new OrderItem(item.productId, item.quantity, item.unitPrice)
-				: new OrderItem(new ProductId(item.productId), item.quantity, new Money(item.unitPrice))
+			item && item instanceof OrderItem
+				? new OrderItem(
+						new ProductId(item.productId),
+						item.quantity,
+						new Money(item.unitPrice.value)
+					)
+				: new OrderItem(new ProductId(item.product.id), item.quantity, new Money(item.unitPrice))
 		);
-
+		console.log('Order constructor after items');
 		this.discount = params.discount
 			? params.discount instanceof Discount
 				? new Discount(params.discount.amount, params.discount.reason)
@@ -53,6 +59,8 @@ export class Order {
 
 		this.createdAt = params.createdAt ?? new Date();
 		this.updatedAt = params.updatedAt ?? new Date();
+
+		console.log('Order constructor finished');
 	}
 
 	// Getters
@@ -242,5 +250,47 @@ export class Order {
 
 		this.status = new OrderStatus('paid');
 		this.updatedAt = new Date();
+	}
+
+	// ... otros métodos existentes
+
+	equals(other: Order): boolean {
+		if (!other) return false;
+		if (!(other instanceof Order)) return false;
+
+		// Comparación básica de identificador
+		if (!this.id.equals(other.id)) return false;
+
+		// Comparación de propiedades principales
+		if (this.tableIdentifier !== other.tableIdentifier) return false;
+		if (this.status !== other.status) return false;
+
+		// Comparación de descuento
+		if ((this.discount && !other.discount) || (!this.discount && other.discount)) {
+			return false;
+		}
+		if (this.discount && other.discount && !this.discount.equals(other.discount)) {
+			return false;
+		}
+
+		// Comparación de items
+		if (this.items.length !== other.items.length) return false;
+		for (let i = 0; i < this.items.length; i++) {
+			if (!this.items[i].equals(other.items[i])) {
+				return false;
+			}
+		}
+
+		// Comparación de extras
+		if (this.extras.length !== other.extras.length) return false;
+		for (let i = 0; i < this.extras.length; i++) {
+			if (!this.extras[i].equals(other.extras[i])) {
+				return false;
+			}
+		}
+
+		// Nota: Fechas (createdAt, updatedAt, closedAt) son deliberadamente omitidas
+
+		return true;
 	}
 }

@@ -4,6 +4,7 @@ import { DrizzleProductRepository } from '@domain/product/repositories/product-r
 
 import { DrizzleOrderRepository } from '@domain/order/repositories/order-repository';
 import type { PageServerLoad } from './$types';
+import { is } from 'drizzle-orm';
 
 const orderService = new OrderService(new DrizzleOrderRepository(), new DrizzleProductRepository());
 
@@ -15,7 +16,9 @@ export async function load(event): Promise<PageServerLoad> {
 		orderService.listPaid(50)
 	]);
 
-	return {
+	// return {
+	console.log('Orders', { openOrders });
+	const response = {
 		products: products.map((p) => ({
 			id: p.id.value,
 			name: p.name,
@@ -23,12 +26,24 @@ export async function load(event): Promise<PageServerLoad> {
 		})),
 		user: event.locals.user,
 		openOrders: openOrders
-			? openOrders.map((o) => ({
+			? //TODO FIX maps items
+				openOrders.map((o) => ({
 					...o,
 					id: o.id.value,
 					status: o.status.value,
 					discount: o.discount?.amount,
-					items: o.getItems().map((i) => products.find((p) => p.id.equals(i.productId)))
+					items: o.getItems().map((i) => {
+						console.log('Order item', { o });
+						const product = products.find((p) => p.id.equals(i.productId));
+						if (!product) return undefined;
+						return {
+							id: product.id.value,
+							name: product.name,
+							price: product.price.value,
+							isActive: product.isActive
+							// quantity: product.
+						};
+					})
 				}))
 			: [],
 		paidOrders: paidOrders
@@ -41,7 +56,7 @@ export async function load(event): Promise<PageServerLoad> {
 				}))
 			: []
 	};
-	// console.log('Response:', response);
+	console.log('Response:', response);
 	// return response;
 }
 

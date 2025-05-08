@@ -133,6 +133,7 @@ export class DrizzleOrderRepository implements OrderRepository {
 		items: (typeof orderItems.$inferSelect)[];
 		extras: (typeof orderExtras.$inferSelect)[];
 	}): Order {
+		console.log('toDomain', { data });
 		return new Order({
 			id: new OrderId(data.order.id),
 			tableIdentifier: data.order.tableIdentifier,
