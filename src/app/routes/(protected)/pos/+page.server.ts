@@ -5,6 +5,7 @@ import { DrizzleProductRepository } from '@domain/product/repositories/product-r
 import { DrizzleOrderRepository } from '@domain/order/repositories/order-repository';
 import type { PageServerLoad } from './$types';
 import { is } from 'drizzle-orm';
+import { pid } from 'process';
 
 const orderService = new OrderService(new DrizzleOrderRepository(), new DrizzleProductRepository());
 
@@ -16,8 +17,8 @@ export async function load(event): Promise<PageServerLoad> {
 		orderService.listPaid(50)
 	]);
 
-	// return {
-	console.log('Orders', { openOrders });
+	//
+	console.log('Orders Before Map', { openOrders, paidOrders, products });
 	const response = {
 		products: products.map((p) => ({
 			id: p.id.value,
@@ -32,18 +33,24 @@ export async function load(event): Promise<PageServerLoad> {
 					id: o.id.value,
 					status: o.status.value,
 					discount: o.discount?.amount,
-					items: o.getItems().map((i) => {
-						console.log('Order item', { o });
-						const product = products.find((p) => p.id.equals(i.productId));
-						if (!product) return undefined;
-						return {
-							id: product.id.value,
-							name: product.name,
-							price: product.price.value,
-							isActive: product.isActive
-							// quantity: product.
-						};
-					})
+					items: o
+						.getItems()
+						.map((i) => {
+							const product = products.find((p) => p.id.equals(i.productId));
+							console.log('Order item', { i, product });
+							if (!product) return;
+							return {
+								id: product.id.value,
+								name: product.name,
+								price: i.unitPrice.value,
+								isActive: product.isActive,
+								quantity: i.quantity
+							};
+						})
+						.filter((item) => {
+							console.log({ item });
+							return item;
+						})
 				}))
 			: [],
 		paidOrders: paidOrders
@@ -56,8 +63,8 @@ export async function load(event): Promise<PageServerLoad> {
 				}))
 			: []
 	};
-	console.log('Response:', response);
-	// return response;
+	console.log('Response Mapped:', response);
+	return response;
 }
 
 export const actions = {

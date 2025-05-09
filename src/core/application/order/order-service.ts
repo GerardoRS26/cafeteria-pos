@@ -43,16 +43,12 @@ export class OrderService {
 			extras: []
 		});
 
-		console.log('before save', { time: new Date() });
 		await this.orderRepository.save(order);
-		console.log('after save', { time: new Date() });
 		return order;
 	}
 
 	async delete(orderId: string): Promise<void> {
-		console.log('before delete', { time: new Date() });
 		await this.orderRepository.delete(new OrderId(orderId));
-		console.log('after save', { time: new Date() });
 	}
 
 	async update(params: {
@@ -78,8 +74,6 @@ export class OrderService {
 			throw new Error('Order not found');
 		}
 
-		console.log('before update', { order });
-
 		// Clonar el estado actual para validación
 		const updatedOrder = new Order({
 			id: order.id,
@@ -97,24 +91,18 @@ export class OrderService {
 				: order.getExtras()
 		});
 
-		console.log('after create updatedOrder', { updatedOrder });
-
 		if (order.equals(updatedOrder)) {
-			console.log('Order is the same, no changes made');
 			return order;
 		}
 
 		// Validar el estado completo del agregado
 		this.validateOrder(updatedOrder);
 
-		console.log('Service before setting items:', { items: params.items });
 		if (params.items !== undefined) {
 			order.getItems().forEach((item) => {
 				order.removeItem(item.productId.id);
 			});
-			console.log('Service clean items:', { items: order.getItems() });
 			params.items.forEach((item) => order.addItem(item.product.id, item.quantity, item.unitPrice));
-			console.log('Service add items:', { items: order.getItems() });
 		}
 
 		if (order.status.isOpen() && params.status === 'paid') order.markAsPaid();
@@ -307,7 +295,9 @@ export class OrderService {
 	}
 
 	async listOpen(limit?: number): Promise<Order[]> {
-		return this.orderRepository.findAllOpen(limit);
+		const orders = await this.orderRepository.findAllOpen(limit);
+		console.log('Orders service before Return', { orders });
+		return orders; // this.orderRepository.findAllOpen(limit);
 	}
 
 	async listPaid(limit?: number): Promise<Order[]> {

@@ -26,7 +26,6 @@ export class Order {
 		createdAt?: Date;
 		updatedAt?: Date;
 	}) {
-		console.log('Order constructor');
 		this.id = params.id instanceof OrderId ? new OrderId(params.id.value) : new OrderId(params.id);
 
 		this.tableIdentifier = params.tableIdentifier;
@@ -37,12 +36,8 @@ export class Order {
 		console.log('Order constructor before items', params.items);
 		this.items = params.items.map((item) =>
 			item && item instanceof OrderItem
-				? new OrderItem(
-						new ProductId(item.productId),
-						item.quantity,
-						new Money(item.unitPrice.value)
-					)
-				: new OrderItem(new ProductId(item.product.id), item.quantity, new Money(item.unitPrice))
+				? item
+				: new OrderItem(new ProductId(item.productId), item.quantity, new Money(item.unitPrice))
 		);
 		console.log('Order constructor after items');
 		this.discount = params.discount

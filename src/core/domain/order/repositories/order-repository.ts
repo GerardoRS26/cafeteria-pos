@@ -120,11 +120,13 @@ export class DrizzleOrderRepository implements OrderRepository {
 
 		const [dbOrder] = await db.select().from(orders).where(eq(orders.id, orderId)).limit(1);
 
-		return this.toDomain({
+		const mapped = this.toDomain({
 			order: dbOrder,
 			items: dbItems,
 			extras: dbExtras
 		});
+		console.log('order in repo mapped', { mapped });
+		return mapped;
 	}
 
 	// ---- Mapeadores ----
@@ -133,7 +135,6 @@ export class DrizzleOrderRepository implements OrderRepository {
 		items: (typeof orderItems.$inferSelect)[];
 		extras: (typeof orderExtras.$inferSelect)[];
 	}): Order {
-		console.log('toDomain', { data });
 		return new Order({
 			id: new OrderId(data.order.id),
 			tableIdentifier: data.order.tableIdentifier,

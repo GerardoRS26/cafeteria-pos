@@ -8,7 +8,6 @@ import { OrderId } from '@domain/order/value-objects/order-id';
 const orderService = new OrderService(new DrizzleOrderRepository(), new DrizzleProductRepository());
 
 export const DELETE: RequestHandler = async ({ params }) => {
-	console.log('params', { params });
 	const { id } = params;
 	if (!id) {
 		throw error(400, 'Order ID is required');
@@ -25,7 +24,6 @@ export const DELETE: RequestHandler = async ({ params }) => {
 export const PATCH: RequestHandler = async ({ params, request }) => {
 	const body = await request.json();
 	const { id } = params;
-	console.log('PATCH params', { params, body });
 	if (!id) {
 		throw error(400, 'Order ID is required');
 	}

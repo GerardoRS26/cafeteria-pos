@@ -7,10 +7,13 @@
 
 	const { data } = $props<POSData>();
 
+	console.log({ data });
 	// State management
-	let orders = $state<Order[]>([...data.openOrders, ...data.paidOrders]);
+	let orders = $state<Order[]>([...(data.openOrders ?? []), ...(data.paidOrders || [])]);
 	let activeOrder = $state<Order | null>(null);
 	let formError = $state<string | null>(null);
+
+	$inspect({ orders });
 
 	// Función optimista para crear orden
 	async function handleCreateOrder(order: Order) {

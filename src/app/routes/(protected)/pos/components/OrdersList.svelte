@@ -96,9 +96,7 @@
 						{order.items.reduce((sum, item) => sum + item.quantity, 0)} artículos
 					</span>
 					<span class="order-total">
-						${order.items
-							.reduce((sum, item) => sum + item.product.price * item.quantity, 0)
-							.toFixed(2)}
+						${order.items.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2)}
 					</span>
 				</div>
 
