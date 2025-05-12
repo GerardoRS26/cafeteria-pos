@@ -3,13 +3,10 @@ import { ProductService } from '@application/product/product-service';
 import { DrizzleProductRepository } from '@domain/product/repositories/product-repository';
 
 import { DrizzleOrderRepository } from '@domain/order/repositories/order-repository';
-import type { PageServerLoad } from './$types';
-import { is } from 'drizzle-orm';
-import { pid } from 'process';
 
 const orderService = new OrderService(new DrizzleOrderRepository(), new DrizzleProductRepository());
 
-export async function load(event): Promise<PageServerLoad> {
+export async function load(event) {
 	const productService = new ProductService(new DrizzleProductRepository());
 	const [products, openOrders, paidOrders] = await Promise.all([
 		productService.listActive(),
@@ -27,8 +24,7 @@ export async function load(event): Promise<PageServerLoad> {
 		})),
 		user: event.locals.user,
 		openOrders: openOrders
-			? //TODO FIX maps items
-				openOrders.map((o) => ({
+			? openOrders.map((o) => ({
 					...o,
 					id: o.id.value,
 					status: o.status.value,

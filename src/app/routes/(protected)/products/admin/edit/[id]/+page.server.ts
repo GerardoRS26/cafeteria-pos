@@ -1,27 +1,18 @@
-import { ProductService } from '@application/product/product-service';
-import { DrizzleProductRepository } from '@domain/product/repositories/product-repository';
-import { ProductId } from '@domain/product/value-objects/product-id';
-import { Money } from '@shared/value-objects/money';
 import { error, fail, type ActionResult } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
 import { isRedirectError } from '$lib/utils';
+import { ProductService } from '$lib/products/product-service';
 
+const service = new ProductService();
 export const load: PageServerLoad = async ({ params }) => {
-	const service = new ProductService(new DrizzleProductRepository());
-	const product = await service.getById(new ProductId(params.id));
+	const product = await service.getById(params.id);
 
 	if (!product) {
 		throw error(404, 'Producto no encontrado');
 	}
 
 	return {
-		product: {
-			id: product.id.value,
-			name: product.name,
-			description: product.description,
-			price: product.price.value,
-			cost: product.cost.value
-		}
+		product
 	};
 };
 
@@ -30,8 +21,7 @@ export const actions: Actions = {
 		const formData = await request.formData();
 
 		try {
-			const service = new ProductService(new DrizzleProductRepository());
-			const productId = new ProductId(params.id);
+			const productId = params.id;
 			//TODO actualizar reglas para que siempre se envie el agregado de producto o en el save para evitar validaciones
 
 			// Validaciones
@@ -45,8 +35,8 @@ export const actions: Actions = {
 			await service.update(productId, {
 				name,
 				description: formData.get('description')?.toString(),
-				price: new Money(priceValue),
-				cost: new Money(costValue)
+				price: priceValue,
+				cost: costValue
 			});
 			console.log('Product updated successfully');
 			return { result: { type: 'success' } as ActionResult };

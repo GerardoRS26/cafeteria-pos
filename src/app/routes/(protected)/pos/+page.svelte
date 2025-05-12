@@ -2,10 +2,9 @@
 	import OrdersList from './components/OrdersList.svelte';
 	import OrderDetail from './components/OrderDetail.svelte';
 	import ProductsList from './components/ProductsList.svelte';
-	import type { POSData, Order, Product } from './components/types';
-	import { enhance } from '$app/forms';
+	import type { Order, Product } from './components/types';
 
-	const { data } = $props<POSData>();
+	const { data } = $props();
 
 	console.log({ data });
 	// State management
@@ -55,8 +54,8 @@
 
 	async function addProduct(product: Product) {
 		if (!activeOrder) return;
-
-		const existingItem = activeOrder.items.find((item) => item.product.id === product.id);
+		console.log('Adding Product', { product });
+		const existingItem = activeOrder.items.find((item) => item.id === product.id);
 
 		if (existingItem) {
 			existingItem.quantity += 1;
@@ -67,8 +66,6 @@
 				unitPrice: product.price
 			});
 		}
-
-		// await updateActiveOrder();
 	}
 
 	async function updateItemQuantity(index: number, delta: number) {
@@ -84,7 +81,7 @@
 	}
 
 	$effect(() => {
-		// if (!activeOrder) return;
+		if (!activeOrder) return;
 		$inspect('Active order updated:', activeOrder);
 		updateActiveOrder()
 			.then(() => {

@@ -24,21 +24,22 @@ export const DELETE: RequestHandler = async ({ params }) => {
 export const PATCH: RequestHandler = async ({ params, request }) => {
 	const body = await request.json();
 	const { id } = params;
+	console.log('Server update: ', { body, id });
 	if (!id) {
 		throw error(400, 'Order ID is required');
 	}
-	// const formData = await request.formData();
-	// const tableIdentifier = formData.get('tableIdentifier');
-	// const orderId = formData.get('orderId');
-	// const orderStatus = formData.get('orderStatus');
-	// const orderItems = formData.get('orderItems');
-	// const orderExtras = formData.get('orderExtras');
 
 	try {
 		const data = {
 			orderId: new OrderId(body.id),
 			tableIdentifier: body.tableIdentifier,
-			items: body.items,
+			items: body.items.map((item) => {
+				return {
+					productId: item.product.id,
+					quantity: item.quantity,
+					unitPrice: item.product.price
+				};
+			}),
 			status: body.status,
 			extras: body.extras,
 			discount: body.discount
@@ -47,8 +48,8 @@ export const PATCH: RequestHandler = async ({ params, request }) => {
 		await orderService.update(data);
 		console.log('Page finished update order service');
 	} catch (error) {
-		console.error('Error deleting order:', error);
-		throw error(500, 'Failed to delete order');
+		console.error('Error update order:', error);
+		throw error(500, 'Failed to update order');
 	}
 	return new Response();
 };

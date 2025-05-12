@@ -100,9 +100,9 @@ export class OrderService {
 
 		if (params.items !== undefined) {
 			order.getItems().forEach((item) => {
-				order.removeItem(item.productId.id);
+				order.removeItem(item.productId.value);
 			});
-			params.items.forEach((item) => order.addItem(item.product.id, item.quantity, item.unitPrice));
+			params.items.forEach((item) => order.addItem(item.productId, item.quantity, item.unitPrice));
 		}
 
 		if (order.status.isOpen() && params.status === 'paid') order.markAsPaid();

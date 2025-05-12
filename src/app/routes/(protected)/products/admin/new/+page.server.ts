@@ -1,8 +1,6 @@
-import { ProductService } from '@application/product/product-service';
-import { DrizzleProductRepository } from '@domain/product/repositories/product-repository';
-import { ProductId } from '@domain/product/value-objects/product-id';
-import { Money } from '@shared/value-objects/money';
-import { fail, redirect, type ActionResult } from '@sveltejs/kit';
+import { ProductService } from '$lib/products/product-service';
+
+import { fail, type ActionResult } from '@sveltejs/kit';
 import type { Actions } from './$types';
 
 export const actions: Actions = {
@@ -25,13 +23,13 @@ export const actions: Actions = {
 			}
 
 			// 2. Crear instancias de dominio
-			const productService = new ProductService(new DrizzleProductRepository());
+			const productService = new ProductService();
 			await productService.create({
-				id: new ProductId(crypto.randomUUID()),
+				id: crypto.randomUUID(),
 				name,
 				description,
-				price: new Money(price),
-				cost: new Money(cost)
+				price,
+				cost
 			});
 
 			return { result: { type: 'success' } as ActionResult };
