@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Product } from './types';
+	import type { Product } from '$lib/products/product-service';
 
 	// Definir props
 	const { products = [], addProduct } = $props<{

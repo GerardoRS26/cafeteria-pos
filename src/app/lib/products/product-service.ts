@@ -44,6 +44,11 @@ export class ProductService {
 		return coreData.map(this.mapToApp);
 	}
 
+	async listActive(): Promise<Product[]> {
+		const coreData = await this.coreService.listActive();
+		return coreData.map(this.mapToApp);
+	}
+
 	async deactivate(id: string): Promise<void> {
 		await this.coreService.deactivate(new ProductId(id));
 	}

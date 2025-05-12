@@ -1,5 +1,5 @@
 import { OrderService } from '@application/order/order-service';
-import { ProductService } from '@application/product/product-service';
+import { ProductService } from '$lib/products/product-service.js';
 import { DrizzleProductRepository } from '@domain/product/repositories/product-repository';
 
 import { DrizzleOrderRepository } from '@domain/order/repositories/order-repository';
@@ -7,20 +7,20 @@ import { DrizzleOrderRepository } from '@domain/order/repositories/order-reposit
 const orderService = new OrderService(new DrizzleOrderRepository(), new DrizzleProductRepository());
 
 export async function load(event) {
-	const productService = new ProductService(new DrizzleProductRepository());
+	const productService = new ProductService();
 	const [products, openOrders, paidOrders] = await Promise.all([
 		productService.listActive(),
-		orderService.listOpen(),
-		orderService.listPaid(50)
+		[], //orderService.listOpen(),
+		[] // orderService.listPaid(50)
 	]);
 
 	//
 	console.log('Orders Before Map', { openOrders, paidOrders, products });
 	const response = {
 		products: products.map((p) => ({
-			id: p.id.value,
+			id: p.id,
 			name: p.name,
-			price: p.price.value
+			price: p.price
 		})),
 		user: event.locals.user,
 		openOrders: openOrders
@@ -32,19 +32,12 @@ export async function load(event) {
 					items: o
 						.getItems()
 						.map((i) => {
-							const product = products.find((p) => p.id.equals(i.productId));
+							const product = products.find((p) => p.id === i.productId.value);
 							console.log('Order item', { i, product });
 							if (!product) return;
-							return {
-								id: product.id.value,
-								name: product.name,
-								price: i.unitPrice.value,
-								isActive: product.isActive,
-								quantity: i.quantity
-							};
+							return product;
 						})
 						.filter((item) => {
-							console.log({ item });
 							return item;
 						})
 				}))
@@ -59,7 +52,7 @@ export async function load(event) {
 				}))
 			: []
 	};
-	console.log('Response Mapped:', response);
+	console.log('Response Mapped:', response.products);
 	return response;
 }
 
