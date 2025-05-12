@@ -33,13 +33,11 @@ export class Order {
 			params.status instanceof OrderStatus
 				? params.status
 				: new OrderStatus((params.status ?? 'open') as OrderStates);
-		console.log('Order constructor before items', params.items);
 		this.items = params.items.map((item) =>
 			item && item instanceof OrderItem
 				? item
 				: new OrderItem(new ProductId(item.productId), item.quantity, new Money(item.unitPrice))
 		);
-		console.log('Order constructor after items');
 		this.discount = params.discount
 			? params.discount instanceof Discount
 				? new Discount(params.discount.amount, params.discount.reason)
@@ -54,8 +52,6 @@ export class Order {
 
 		this.createdAt = params.createdAt ?? new Date();
 		this.updatedAt = params.updatedAt ?? new Date();
-
-		console.log('Order constructor finished');
 	}
 
 	// Getters

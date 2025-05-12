@@ -4,10 +4,8 @@ import type { ProductRepository } from '@domain/product/repositories/repository'
 import { OrderId } from '@domain/order/value-objects/order-id';
 import { ProductId } from '@domain/product/value-objects/product-id';
 import { Money } from '@shared/value-objects/money';
-import { time } from 'console';
 import { Discount } from '@domain/order/value-objects/discount';
 import { OrderItem } from '@domain/order/value-objects/order-item';
-import { or } from 'drizzle-orm';
 import { Extra } from '@domain/order/value-objects/extra';
 
 /**
@@ -295,9 +293,7 @@ export class OrderService {
 	}
 
 	async listOpen(limit?: number): Promise<Order[]> {
-		const orders = await this.orderRepository.findAllOpen(limit);
-		console.log('Orders service before Return', { orders });
-		return orders; // this.orderRepository.findAllOpen(limit);
+		return await this.orderRepository.findAllOpen(limit);
 	}
 
 	async listPaid(limit?: number): Promise<Order[]> {

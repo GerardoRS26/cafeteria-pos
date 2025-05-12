@@ -14,7 +14,7 @@ export type Product = {
 };
 
 export class ProductService {
-	private coreService: CoreService;
+	private readonly coreService: CoreService;
 	constructor() {
 		this.coreService = new CoreService(new DrizzleProductRepository());
 	}
@@ -86,7 +86,6 @@ export class ProductService {
 			cost: number;
 		}>
 	): Promise<void> {
-		console.log('params.price === undefined', params.price === undefined, { price: params.price });
 		await this.coreService.update(new ProductId(id), {
 			...params,
 			price: params.price === undefined ? undefined : new Money(params.price),

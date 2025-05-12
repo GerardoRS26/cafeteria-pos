@@ -38,7 +38,6 @@ export const actions: Actions = {
 				price: priceValue,
 				cost: costValue
 			});
-			console.log('Product updated successfully');
 			return { result: { type: 'success' } as ActionResult };
 		} catch (err) {
 			if (isRedirectError(err)) {

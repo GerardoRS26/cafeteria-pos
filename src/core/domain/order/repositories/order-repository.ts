@@ -125,7 +125,6 @@ export class DrizzleOrderRepository implements OrderRepository {
 			items: dbItems,
 			extras: dbExtras
 		});
-		console.log('order in repo mapped', { mapped });
 		return mapped;
 	}
 

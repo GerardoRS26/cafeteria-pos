@@ -18,7 +18,6 @@ export async function load() {
 
 export const actions = {
 	delete: async ({ request }) => {
-		console.log('Delete action triggered');
 		const data = await request.formData();
 		const service = new ProductService(new DrizzleProductRepository());
 		const productId = (data.get('id') as string) ?? '';
