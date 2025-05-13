@@ -5,8 +5,8 @@ import { OrderId } from '@domain/order/value-objects/order-id';
 import { ProductId } from '@domain/product/value-objects/product-id';
 import { Money } from '@shared/value-objects/money';
 import { Discount } from '@domain/order/value-objects/discount';
-import { OrderItem } from '@domain/order/value-objects/order-item';
 import { Extra } from '@domain/order/value-objects/extra';
+import { OrderStatus } from '@domain/order/value-objects/order-status';
 
 /**
  * Handles all order use cases.
@@ -19,25 +19,13 @@ export class OrderService {
 	) {}
 
 	// ---- CRUD Operations ----
-	async create(params: {
-		tableIdentifier: string;
-		items?: Array<{
-			productId: string;
-			quantity: number;
-			unitPrice: number;
-		}>;
-	}): Promise<Order> {
+	async create(tableIdentifier: string): Promise<Order> {
 		const orderId = new OrderId(crypto.randomUUID());
 		const order = new Order({
 			id: orderId,
-			tableIdentifier: params.tableIdentifier,
-			items: params.items
-				? params.items.map(
-						(item) =>
-							new OrderItem(new ProductId(item.productId), item.quantity, new Money(item.unitPrice))
-					)
-				: [],
-			status: 'open',
+			tableIdentifier: tableIdentifier,
+			items: [],
+			status: new OrderStatus('open'),
 			extras: []
 		});
 
@@ -297,7 +285,7 @@ export class OrderService {
 	}
 
 	async listPaid(limit?: number): Promise<Order[]> {
-		return await this.orderRepository.findAllPaid(limit);
+		return this.orderRepository.findAllPaid(limit);
 	}
 
 	async listAll(limit?: number): Promise<Order[]> {

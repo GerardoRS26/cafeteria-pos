@@ -4,6 +4,7 @@
 	import ProductsList from './components/ProductsList.svelte';
 	import type { Order } from '$lib/orders/order-service';
 	import type { Product } from '$lib/products/product-service';
+	import type { ActionResult } from '@sveltejs/kit';
 
 	const { data } = $props();
 
@@ -16,19 +17,31 @@
 	$inspect({ orders });
 
 	// Función optimista para crear orden
-	async function handleCreateOrder(order: Order) {
-		const tableIdentifier = formData.get('tableIdentifier') as string;
-		const newOrder: Order = {
-			id: crypto.randomUUID(),
-			tableIdentifier,
-			items: [],
-			status: 'open',
-			createdAt: new Date()
-		};
+	// async function handleCreateOrder({ result }: { result: ActionResult }) {
+	// 	console.log({ result });
+	// 	const tableIdentifier = formData.get('tableIdentifier') as string;
+	// 	const newOrder: Order = {
+	// 		id: crypto.randomUUID(),
+	// 		tableIdentifier,
+	// 		items: [],
+	// 		createdAt: new Date()
+	// 	};
 
-		// Actualización optimista
-		orders.push(newOrder);
-		activeOrder = newOrder;
+	// 	// Actualización optimista
+	// 	orders.push(newOrder);
+	// 	activeOrder = newOrder;
+	// }
+
+	async function handleCreateOrder({ formElement, formData, action, cancel }: ActionResult) {
+		return async ({ result }: { result: ActionResult }) => {
+			console.log({ data: result.data.data });
+
+			const newOrder = result.data.data;
+
+			// Actualización optimista
+			orders.push(newOrder);
+			activeOrder = newOrder;
+		};
 	}
 
 	// Función optimista para cerrar orden

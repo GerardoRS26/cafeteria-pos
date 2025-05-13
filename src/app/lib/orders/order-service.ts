@@ -43,9 +43,6 @@ export class OrderService {
 		);
 	}
 
-	private test(message: string) {
-		console.log(message);
-	}
 	private mapItemToApp(itemCore: ItemCore): OrderItem {
 		return {
 			productId: itemCore.productId.value,
@@ -90,5 +87,10 @@ export class OrderService {
 	async listPaid(limit?: number): Promise<Order[]> {
 		const orders = await this.coreService.listPaid(limit);
 		return orders.map(this.mapOrderToApp.bind(this));
+	}
+
+	async create(tableIdentifier: string): Promise<Order> {
+		const order = await this.coreService.create(tableIdentifier);
+		return this.mapOrderToApp(order);
 	}
 }

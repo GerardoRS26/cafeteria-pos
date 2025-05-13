@@ -1,6 +1,6 @@
 import { OrderService, type Order, type OrderItem } from '$lib/orders/order-service.js';
 import { ProductService } from '$lib/products/product-service.js';
-
+import { fail, type ActionResult, type Actions } from '@sveltejs/kit';
 const orderService = new OrderService();
 
 export type OrderWithItemNames = Omit<Order, 'items'> & {
@@ -52,31 +52,29 @@ export async function load(event) {
 	return response;
 }
 
-export const actions = {
+export const actions: Actions = {
 	createOrder: async ({ request }) => {
 		const formData = await request.formData();
 		const tableIdentifier = formData.get('tableIdentifier');
-		const orderId = formData.get('orderId');
-		const orderStatus = formData.get('orderStatus');
-		const orderItems = formData.get('orderItems');
-		const orderExtras = formData.get('orderExtras');
 
 		if (!tableIdentifier || typeof tableIdentifier !== 'string') {
-			return fail(400, { error: 'Table identifier is required' });
+			return fail(400, {
+				error: 'Table identifier is required',
+				fields: {
+					tableIdentifier: formData.get('tableIdentifier')?.toString()
+				}
+			});
 		}
 
-		// Lógica para crear la orden en el servidor
-		const newOrder = {
-			id: crypto.randomUUID(),
-			tableIdentifier,
-			items: [],
-			status: 'open',
-			createdAt: new Date()
-		};
-
-		orderService.create(newOrder);
-
-		return { success: true, order: newOrder };
+		try {
+			const savedOrder = await orderService.create(tableIdentifier);
+			return { type: 'success', status: 201, data: savedOrder };
+		} catch (err) {
+			console.error('Error creating order:', err);
+			return fail(422, {
+				error: err instanceof Error ? err.message : 'Error al crear la orden'
+			});
+		}
 	},
 
 	closeOrder: async ({ request }) => {

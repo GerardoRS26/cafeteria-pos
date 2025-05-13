@@ -2,7 +2,7 @@
 	import { enhance } from '$app/forms';
 	import type { Order } from '$lib/orders/order-service';
 
-	const { data, orders, activeOrder, createOrder, setActiveOrder, deleteOrder } = $props();
+	const { data, orders, activeOrder, handleCreateOrder, setActiveOrder, deleteOrder } = $props();
 
 	let tableInput = $state('');
 	let showClosedOrders = $state(false);
@@ -27,15 +27,15 @@
 		orderToDelete = null;
 	}
 
-	async function handleSubmit({ result }: { result: ActionResult }) {
-		if (result?.type === 'success') {
-			formSuccess = 'Producto actualizado correctamente';
-			formError = null;
-		} else if (result?.type === 'failure') {
-			formError = result.data?.error || 'Error al actualizar el producto';
-			formData = result.data?.fields || formData;
-		}
-	}
+	// async function handleSubmit({ result }: { result: ActionResult }) {
+	// 	if (result?.type === 'success') {
+	// 		formSuccess = 'Producto actualizado correctamente';
+	// 		formError = null;
+	// 	} else if (result?.type === 'failure') {
+	// 		formError = result.data?.error || 'Error al actualizar el producto';
+	// 		formData = result.data?.fields || formData;
+	// 	}
+	// }
 </script>
 
 <div class="orders-column">
@@ -53,7 +53,7 @@
 
 	{#if !showClosedOrders}
 		<div class="new-order">
-			<form method="POST" action="?/createOrder" use:enhance={handleSubmit}>
+			<form method="POST" action="?/createOrder" use:enhance={handleCreateOrder}>
 				<input
 					type="text"
 					name="tableIdentifier"
