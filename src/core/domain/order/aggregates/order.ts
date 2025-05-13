@@ -1,5 +1,5 @@
 import { OrderId } from '../value-objects/order-id';
-import { OrderStatus, type OrderStates } from '../value-objects/order-status';
+import { OrderStatus } from '../value-objects/order-status';
 import { OrderItem } from '../value-objects/order-item';
 import { Discount } from '../value-objects/discount';
 import { Extra } from '../value-objects/extra';
@@ -17,38 +17,37 @@ export class Order {
 	updatedAt: Date;
 
 	constructor(params: {
-		id: string | OrderId;
+		id: OrderId;
 		tableIdentifier: string;
-		items: { productId: string; quantity: number; unitPrice: number }[] | OrderItem[];
-		status: string | OrderStatus;
-		discount?: { amount: number; reason: string } | Discount;
-		extras: { amount: number; description: string }[] | Extra[];
+		items: OrderItem[];
+		status: OrderStatus;
+		discount?: Discount;
+		extras: Extra[];
 		createdAt?: Date;
 		updatedAt?: Date;
 	}) {
-		this.id = params.id instanceof OrderId ? new OrderId(params.id.value) : new OrderId(params.id);
+		this.id = new OrderId(params.id.value);
 
 		this.tableIdentifier = params.tableIdentifier;
-		this.status =
-			params.status instanceof OrderStatus
-				? params.status
-				: new OrderStatus((params.status ?? 'open') as OrderStates);
-		this.items = params.items.map((item) =>
-			item && item instanceof OrderItem
-				? item
-				: new OrderItem(new ProductId(item.productId), item.quantity, new Money(item.unitPrice))
-		);
+		this.status = new OrderStatus(params.status.value);
+		this.items = params.items.length
+			? params.items.map(
+					(item) =>
+						new OrderItem(
+							new ProductId(item.productId.value),
+							item.quantity,
+							new Money(item.unitPrice.value)
+						)
+				)
+			: [];
+
 		this.discount = params.discount
-			? params.discount instanceof Discount
-				? new Discount(params.discount.amount, params.discount.reason)
-				: new Discount(new Money(params.discount.amount), params.discount.reason)
+			? new Discount(new Money(params.discount.amount.value), params.discount.reason)
 			: undefined;
 
-		this.extras = params.extras.map((extra) =>
-			extra instanceof Extra
-				? new Extra(extra.amount, extra.description)
-				: new Extra(new Money(extra.amount), extra.description)
-		);
+		this.extras = params.extras.length
+			? params.extras.map((extra) => new Extra(new Money(extra.amount.value), extra.description))
+			: [];
 
 		this.createdAt = params.createdAt ?? new Date();
 		this.updatedAt = params.updatedAt ?? new Date();

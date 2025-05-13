@@ -1,15 +1,8 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import type { Order, POSData } from './types';
+	import type { Order } from '$lib/orders/order-service';
 
-	const { data, orders, activeOrder, createOrder, setActiveOrder, deleteOrder } = $props<{
-		data: POSData;
-		orders: Order[];
-		activeOrder: Order | null;
-		handleCreateOrder: (order: Order) => void;
-		setActiveOrder: (order: Order) => void;
-		deleteOrder: (orderId: string) => void;
-	}>();
+	const { data, orders, activeOrder, createOrder, setActiveOrder, deleteOrder } = $props();
 
 	let tableInput = $state('');
 	let showClosedOrders = $state(false);
@@ -96,7 +89,7 @@
 						{order.items.reduce((sum, item) => sum + item.quantity, 0)} artículos
 					</span>
 					<span class="order-total">
-						${order.items.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2)}
+						${order.items.reduce((sum, item) => sum + item.unitPrice * item.quantity, 0).toFixed(2)}
 					</span>
 				</div>
 

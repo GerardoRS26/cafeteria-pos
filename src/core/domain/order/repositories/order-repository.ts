@@ -56,7 +56,7 @@ export class DrizzleOrderRepository implements OrderRepository {
 		const dbExtras = await db.select().from(orderExtras).where(eq(orderExtras.orderId, orderId));
 
 		return this.toDomain({
-			order: dbOrder,
+			order: dbOrder[0],
 			items: dbItems,
 			extras: dbExtras
 		});
@@ -113,12 +113,11 @@ export class DrizzleOrderRepository implements OrderRepository {
 
 	// Nuevo método helper para cargar relaciones
 	private async getOrderWithRelations(orderId: string): Promise<Order> {
-		const [dbItems, dbExtras] = await Promise.all([
+		const [dbItems, dbExtras, [dbOrder]] = await Promise.all([
 			db.select().from(orderItems).where(eq(orderItems.orderId, orderId)),
-			db.select().from(orderExtras).where(eq(orderExtras.orderId, orderId))
+			db.select().from(orderExtras).where(eq(orderExtras.orderId, orderId)),
+			db.select().from(orders).where(eq(orders.id, orderId)).limit(1)
 		]);
-
-		const [dbOrder] = await db.select().from(orders).where(eq(orders.id, orderId)).limit(1);
 
 		const mapped = this.toDomain({
 			order: dbOrder,

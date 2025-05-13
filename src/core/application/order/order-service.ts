@@ -293,7 +293,7 @@ export class OrderService {
 	}
 
 	async listOpen(limit?: number): Promise<Order[]> {
-		return await this.orderRepository.findAllOpen(limit);
+		return this.orderRepository.findAllOpen(limit);
 	}
 
 	async listPaid(limit?: number): Promise<Order[]> {

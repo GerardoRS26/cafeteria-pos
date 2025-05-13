@@ -2,7 +2,8 @@
 	import OrdersList from './components/OrdersList.svelte';
 	import OrderDetail from './components/OrderDetail.svelte';
 	import ProductsList from './components/ProductsList.svelte';
-	import type { Order, Product } from './components/types';
+	import type { Order } from '$lib/orders/order-service';
+	import type { Product } from '$lib/products/product-service';
 
 	const { data } = $props();
 
@@ -61,7 +62,8 @@
 			existingItem.quantity += 1;
 		} else {
 			activeOrder.items.push({
-				product,
+				name: product.name,
+				productId: product.id,
 				quantity: 1,
 				unitPrice: product.price
 			});

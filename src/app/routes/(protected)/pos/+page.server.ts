@@ -1,21 +1,44 @@
-import { OrderService } from '@application/order/order-service';
+import { OrderService, type Order, type OrderItem } from '$lib/orders/order-service.js';
 import { ProductService } from '$lib/products/product-service.js';
-import { DrizzleProductRepository } from '@domain/product/repositories/product-repository';
 
-import { DrizzleOrderRepository } from '@domain/order/repositories/order-repository';
+const orderService = new OrderService();
 
-const orderService = new OrderService(new DrizzleOrderRepository(), new DrizzleProductRepository());
+export type OrderWithItemNames = Omit<Order, 'items'> & {
+	items: (OrderItem & { name: string })[];
+};
 
 export async function load(event) {
 	const productService = new ProductService();
-	const [products, openOrders, paidOrders] = await Promise.all([
+	let [products, openOrders, paidOrders] = await Promise.all([
 		productService.listActive(),
-		[], //orderService.listOpen(),
-		[] // orderService.listPaid(50)
+		orderService.listOpen(),
+		orderService.listPaid(50)
 	]);
 
-	//
-	console.log('Orders Before Map', { openOrders, paidOrders, products });
+	openOrders = openOrders.map((order) => {
+		return {
+			...order,
+			items: order.items.map((item) => {
+				return {
+					...item,
+					name: products?.find((product) => product.id === item.productId)?.name ?? 'No set'
+				};
+			})
+		};
+	});
+
+	paidOrders = paidOrders.map((order) => {
+		return {
+			...order,
+			items: order.items.map((item) => {
+				return {
+					...item,
+					name: products?.find((product) => product.id === item.productId)?.name ?? 'No set'
+				};
+			})
+		};
+	});
+
 	const response = {
 		products: products.map((p) => ({
 			id: p.id,
@@ -23,36 +46,9 @@ export async function load(event) {
 			price: p.price
 		})),
 		user: event.locals.user,
-		openOrders: openOrders
-			? openOrders.map((o) => ({
-					...o,
-					id: o.id.value,
-					status: o.status.value,
-					discount: o.discount?.amount,
-					items: o
-						.getItems()
-						.map((i) => {
-							const product = products.find((p) => p.id === i.productId.value);
-							console.log('Order item', { i, product });
-							if (!product) return;
-							return product;
-						})
-						.filter((item) => {
-							return item;
-						})
-				}))
-			: [],
-		paidOrders: paidOrders
-			? paidOrders.map((o) => ({
-					...o,
-					id: o.id.value,
-					status: o.status.value,
-					discount: o.discount?.amount,
-					items: o.getItems().map((i) => products.find((p) => p.id.equals(i.productId)))
-				}))
-			: []
+		openOrders: openOrders as OrderWithItemNames[],
+		paidOrders: paidOrders as OrderWithItemNames[]
 	};
-	console.log('Response Mapped:', response.products);
 	return response;
 }
 

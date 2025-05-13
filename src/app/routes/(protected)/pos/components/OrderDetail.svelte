@@ -1,12 +1,7 @@
 <script lang="ts">
-	import type { Order } from './types';
+	import type { OrderItem } from '$lib/orders/order-service';
 
-	const { activeOrder, closeOrder, updateItemQuantity, removeItem } = $props<{
-		activeOrder: Order | null;
-		closeOrder: () => void;
-		updateItemQuantity: (index: number, delta: number) => void;
-		removeItem: (index: number) => void;
-	}>();
+	const { activeOrder, closeOrder, updateItemQuantity, removeItem } = $props();
 
 	let amountReceived = $state(0);
 
@@ -30,8 +25,7 @@
 	const subtotal = $derived(
 		() =>
 			activeOrder?.items.reduce(
-				(sum: number, item: { price: number; quantity: number }) =>
-					sum + item.price * item.quantity,
+				(sum: number, item: OrderItem) => sum + item.unitPrice * item.quantity,
 				0
 			) || 0
 	);
@@ -74,7 +68,7 @@
 				<li class:closed-item={activeOrder.closed}>
 					<div class="item-info">
 						<span class="name">{item.name}</span>
-						<span class="price">${item.price.toFixed(2)}</span>
+						<span class="price">${item.unitPrice.toFixed(2)}</span>
 					</div>
 					<div class="item-controls">
 						<button
